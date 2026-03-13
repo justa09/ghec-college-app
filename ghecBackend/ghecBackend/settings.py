@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'auth_app',
     'students',
     'attendance',
+    'teachers',
 ]
 
 
