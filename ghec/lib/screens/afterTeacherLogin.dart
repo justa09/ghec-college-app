@@ -5,8 +5,13 @@ import 'addStu.dart';
 
 class Afterteacherlogin extends StatefulWidget {
   final String teacherId;
+  final String image;
 
-  const Afterteacherlogin({super.key, required this.teacherId});
+  const Afterteacherlogin({
+    super.key,
+    required this.teacherId,
+    required this.image,
+  });
 
   @override
   State<Afterteacherlogin> createState() => _AfterteacherloginState();
@@ -50,9 +55,14 @@ class _AfterteacherloginState extends State<Afterteacherlogin> {
                         /// Teacher Info
                         Row(
                           children: [
-                            const CircleAvatar(
+                            CircleAvatar(
                               radius: 22,
-                              backgroundImage: AssetImage("assets/logo.png"),
+                              backgroundImage: widget.image.isNotEmpty
+                                  ? NetworkImage(widget.image)
+                                  : null,
+                              child: widget.image.isEmpty
+                                  ? const Icon(Icons.person)
+                                  : null,
                             ),
                             const SizedBox(width: 12),
                             Text(

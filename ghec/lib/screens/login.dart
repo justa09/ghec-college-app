@@ -49,13 +49,14 @@ class _LoginPageState extends State<LoginPage> {
       final result = await ApiService.login(rollNo.text, passw.text, usertype!);
 
       if (result["status"] == "success") {
-        print(result["username"]);
         if (usertype == "teacher") {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) =>
-                  Afterteacherlogin(teacherId: result["username"]),
+              builder: (context) => Afterteacherlogin(
+                teacherId: result["username"],
+                image: result['image'],
+              ),
             ),
           );
         }
@@ -64,7 +65,10 @@ class _LoginPageState extends State<LoginPage> {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => Afterlogin(rollNo: result["username"]),
+              builder: (context) => Afterlogin(
+                rollNo: result["username"],
+                image: result['image'],
+              ),
             ),
           );
         }
@@ -110,7 +114,8 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => Afterteacherlogin(teacherId: rollNo.text),
+          builder: (context) =>
+              Afterteacherlogin(teacherId: rollNo.text, image: ""),
         ),
       );
       return;
@@ -120,7 +125,7 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => Afterlogin(rollNo: rollNo.text),
+          builder: (context) => Afterlogin(rollNo: rollNo.text, image: ""),
         ),
       );
       return;

@@ -26,6 +26,8 @@ urlpatterns = [
     path('api/fetch_students/', fetch_students_api),
     path('api/', include('attendance.urls')),
     path('api/', include('students.urls')),
+   path('api/', include('teachers.urls')),
+
 
     path('students/', include('students.urls')),  # ⬅️ students app ke urls include kar rahe
 ]

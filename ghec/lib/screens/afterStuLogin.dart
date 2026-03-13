@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ghec/api/attendanceApi.dart';
 import 'package:ghec/screens/login.dart';
@@ -6,15 +5,26 @@ import 'package:ghec/screens/showAttandance.dart';
 
 class Afterlogin extends StatefulWidget {
   final String rollNo;
-  const Afterlogin({super.key, required this.rollNo});
+  final String image;
+
+  const Afterlogin({super.key, required this.rollNo, required this.image});
 
   @override
   State<Afterlogin> createState() => _Afterlogin();
 }
 
 class _Afterlogin extends State<Afterlogin> {
+  void logout() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const LoginPage()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -24,8 +34,10 @@ class _Afterlogin extends State<Afterlogin> {
             end: Alignment.bottomRight,
           ),
         ),
+
         child: Column(
           children: [
+            /// ---------- TOP BAR ----------
             SafeArea(
               child: Padding(
                 padding: const EdgeInsets.all(12),
@@ -43,32 +55,40 @@ class _Afterlogin extends State<Afterlogin> {
                       ),
                       borderRadius: BorderRadius.circular(18),
                     ),
+
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          widget.rollNo,
-                          style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1,
-                            color: Colors.white,
+                        /// PROFILE IMAGE
+                        CircleAvatar(
+                          radius: 22,
+                          backgroundColor: Colors.white,
+                          backgroundImage: widget.image.isNotEmpty
+                              ? NetworkImage(widget.image)
+                              : null,
+                          child: widget.image.isEmpty
+                              ? const Icon(Icons.person)
+                              : null,
+                        ),
+
+                        const SizedBox(width: 12),
+
+                        /// ROLL NUMBER
+                        Expanded(
+                          child: Text(
+                            widget.rollNo,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
-                        TextButton.icon(
-                          onPressed: () {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const LoginPage(),
-                              ),
-                            );
-                          },
+
+                        /// LOGOUT BUTTON
+                        IconButton(
+                          onPressed: logout,
                           icon: const Icon(Icons.logout, color: Colors.white),
-                          label: const Text(
-                            "Logout",
-                            style: TextStyle(color: Colors.white),
-                          ),
                         ),
                       ],
                     ),
@@ -76,6 +96,8 @@ class _Afterlogin extends State<Afterlogin> {
                 ),
               ),
             ),
+
+            /// ---------- DASHBOARD ----------
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -84,6 +106,7 @@ class _Afterlogin extends State<Afterlogin> {
                   borderRadius: const BorderRadius.vertical(
                     top: Radius.circular(30),
                   ),
+
                   child: Container(
                     width: double.infinity,
                     decoration: const BoxDecoration(
@@ -92,11 +115,14 @@ class _Afterlogin extends State<Afterlogin> {
                         top: Radius.circular(30),
                       ),
                     ),
+
                     child: Padding(
-                      padding: const EdgeInsets.all(25),
+                      padding: EdgeInsets.all(width * 0.06),
+
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          /// DASHBOARD TITLE
                           const Text(
                             "Dashboard",
                             style: TextStyle(
@@ -105,26 +131,34 @@ class _Afterlogin extends State<Afterlogin> {
                               letterSpacing: 1,
                             ),
                           ),
+
                           const SizedBox(height: 30),
+
+                          /// RESULT
                           _buildMenuButton(
                             icon: Icons.bar_chart,
-                            title: "Result ->",
+                            title: "Result",
                             onTap: () {
-                              print("ok");
+                              print("Result Clicked");
                             },
                           ),
+
                           const SizedBox(height: 20),
+
+                          /// FEES
                           _buildMenuButton(
                             icon: Icons.currency_rupee,
-                            title: "Fees ->",
+                            title: "Fees",
                             onTap: () {},
                           ),
+
                           const SizedBox(height: 20),
+
+                          /// ATTENDANCE
                           _buildMenuButton(
                             icon: Icons.check_circle_outline,
-                            title: "Attendance ->",
+                            title: "Attendance",
                             onTap: () async {
-                              // 🔹 Fetch attendance data from backend
                               List<dynamic>? attendanceData =
                                   await ShowAttendanceApi().showAttendance([
                                     widget.rollNo,
@@ -140,8 +174,8 @@ class _Afterlogin extends State<Afterlogin> {
                                 return;
                               }
 
-                              // 🔹 Extract subjects list from backend data
                               List<String> subjects = [];
+
                               if (attendanceData.first.containsKey(
                                 'subjects',
                               )) {
@@ -151,7 +185,6 @@ class _Afterlogin extends State<Afterlogin> {
                                 }
                               }
 
-                              // 🔹 Navigate to AttendancePage
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -176,6 +209,7 @@ class _Afterlogin extends State<Afterlogin> {
     );
   }
 
+  /// ---------- MENU BUTTON ----------
   Widget _buildMenuButton({
     required IconData icon,
     required String title,
@@ -184,21 +218,27 @@ class _Afterlogin extends State<Afterlogin> {
     return Material(
       elevation: 4,
       borderRadius: BorderRadius.circular(15),
+
       child: InkWell(
         borderRadius: BorderRadius.circular(15),
         onTap: onTap,
+
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),
+
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             gradient: LinearGradient(
               colors: [Colors.green.shade400, Colors.green.shade600],
             ),
           ),
+
           child: Row(
             children: [
               Icon(icon, color: Colors.white, size: 28),
+
               const SizedBox(width: 20),
+
               Text(
                 title,
                 style: const TextStyle(
