@@ -6,8 +6,14 @@ import 'package:ghec/screens/showAttandance.dart';
 class Afterlogin extends StatefulWidget {
   final String rollNo;
   final String image;
+  final String username;
 
-  const Afterlogin({super.key, required this.rollNo, required this.image});
+  const Afterlogin({
+    super.key,
+    required this.rollNo,
+    required this.image,
+    required this.username,
+  });
 
   @override
   State<Afterlogin> createState() => _Afterlogin();
@@ -74,14 +80,30 @@ class _Afterlogin extends State<Afterlogin> {
 
                         /// ROLL NUMBER
                         Expanded(
-                          child: Text(
-                            widget.rollNo,
-                            style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                            overflow: TextOverflow.ellipsis,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                widget.username,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Text(
+                                widget.rollNo,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
 
@@ -179,6 +201,7 @@ class _Afterlogin extends State<Afterlogin> {
                               if (attendanceData.first.containsKey(
                                 'subjects',
                               )) {
+                                print("this is rollno ${widget.rollNo}");
                                 for (var subj
                                     in attendanceData.first['subjects']) {
                                   subjects.add(subj['subject'].toString());
@@ -189,8 +212,10 @@ class _Afterlogin extends State<Afterlogin> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => AttendancePage(
+                                    username: widget.username,
                                     rollNo: widget.rollNo,
                                     subjects: subjects,
+                                    image: widget.image,
                                   ),
                                 ),
                               );

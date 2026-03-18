@@ -34,7 +34,7 @@ class AttendanceApi {
 class ShowAttendanceApi {
   final String baseUrl = "http://192.168.43.46:8000/api";
 
-  /// Existing method (unchanged)
+  /// Existing method (FIXED + SAFE)
   Future<List<dynamic>?> showAttendance(List<String> rollNumbers) async {
     final url = Uri.parse("$baseUrl/attendance/show/");
 
@@ -45,8 +45,21 @@ class ShowAttendanceApi {
         body: jsonEncode(rollNumbers),
       );
 
+      print("STATUS: ${response.statusCode}");
+      print("RAW RESPONSE: ${response.body}");
+
       if (response.statusCode == 200) {
-        return jsonDecode(response.body) as List<dynamic>;
+        final decoded = jsonDecode(response.body);
+
+        // ✅ Handle multiple backend formats
+        if (decoded is List) {
+          return decoded;
+        } else if (decoded is Map && decoded.containsKey('data')) {
+          return decoded['data'];
+        } else {
+          print("Unexpected response format");
+          return null;
+        }
       } else {
         print(
           "Failed to fetch attendance: ${response.statusCode}, body: ${response.body}",
@@ -64,9 +77,20 @@ class ShowAttendanceApi {
     final url = Uri.parse("$baseUrl/attendance/subjects/$rollNo/");
     try {
       final response = await http.get(url);
+
+      print("SUBJECT STATUS: ${response.statusCode}");
+      print("SUBJECT RESPONSE: ${response.body}");
+
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
-        return List<String>.from(data);
+
+        if (data is List) {
+          return List<String>.from(data);
+        } else if (data is Map && data.containsKey('subjects')) {
+          return List<String>.from(data['subjects']);
+        } else {
+          return [];
+        }
       } else {
         print("Failed to fetch subjects: ${response.statusCode}");
         return [];
@@ -85,9 +109,17 @@ class ShowAttendanceApi {
     final url = Uri.parse("$baseUrl/attendance/show/$rollNo/$subject/");
     try {
       final response = await http.get(url);
+
+      print("SUBJECT ATT STATUS: ${response.statusCode}");
+      print("SUBJECT ATT RESPONSE: ${response.body}");
+
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
-        return {'present': data['present'] ?? 0, 'absent': data['absent'] ?? 0};
+
+        return {
+          'present': int.tryParse(data['present'].toString()) ?? 0,
+          'absent': int.tryParse(data['absent'].toString()) ?? 0,
+        };
       } else {
         print("Failed to fetch subject attendance: ${response.statusCode}");
         return {'present': 0, 'absent': 0};
@@ -98,30 +130,39 @@ class ShowAttendanceApi {
     }
   }
 
-  /// 🔹 Future-ready: fetch attendance for multiple students
+  /// 🔹 Future-ready: fetch attendance for multiple students (OPTIMIZED SAFE)
   Future<Map<String, Map<String, int>>> getAttendanceForMultipleStudents(
     List<String> rollNos, {
     String? subject,
   }) async {
     final result = <String, Map<String, int>>{};
+
     for (var roll in rollNos) {
-      if (subject == null || subject == "All") {
-        // Fetch combined attendance
-        final data = await showAttendance([roll]);
-        if (data != null && data.isNotEmpty) {
-          result[roll] = {
-            'present': data[0]['present'] ?? 0,
-            'absent': data[0]['absent'] ?? 0,
-          };
+      try {
+        if (subject == null || subject == "All") {
+          final data = await showAttendance([roll]);
+
+          if (data != null && data.isNotEmpty) {
+            final student = data.first;
+
+            result[roll] = {
+              'present':
+                  int.tryParse(student['present']?.toString() ?? '0') ?? 0,
+              'absent': int.tryParse(student['absent']?.toString() ?? '0') ?? 0,
+            };
+          } else {
+            result[roll] = {'present': 0, 'absent': 0};
+          }
         } else {
-          result[roll] = {'present': 0, 'absent': 0};
+          final data = await getAttendanceForSubject(roll, subject);
+          result[roll] = data;
         }
-      } else {
-        // Fetch subject-wise attendance
-        final data = await getAttendanceForSubject(roll, subject);
-        result[roll] = data;
+      } catch (e) {
+        print("Error processing roll $roll: $e");
+        result[roll] = {'present': 0, 'absent': 0};
       }
     }
+
     return result;
   }
 }

@@ -3,11 +3,15 @@ import 'package:ghec/api/attendanceApi.dart';
 
 class AttendancePage extends StatefulWidget {
   final String rollNo;
+  final String username;
+  final String image;
   final List<String> subjects;
   const AttendancePage({
     super.key,
     required this.rollNo,
     required this.subjects,
+    required this.username,
+    required this.image,
   });
 
   @override
@@ -27,10 +31,13 @@ class _AttendancePageState extends State<AttendancePage> {
   }
 
   Future<void> fetchAttendance() async {
+    if (!mounted) return;
     setState(() => isLoading = true);
 
     ShowAttendanceApi api = ShowAttendanceApi();
     final response = await api.showAttendance([widget.rollNo]);
+
+    if (!mounted) return;
 
     if (response != null && response.isNotEmpty) {
       final studentData = response.first;
@@ -39,10 +46,22 @@ class _AttendancePageState extends State<AttendancePage> {
       Map<String, Map<String, int>> fetchedData = {};
       List<String> subjList = [];
 
-      for (var subj in subjectsData) {
-        String name = subj['subject'] ?? "Unknown";
-        int present = subj['present'] ?? 0;
-        int total = subj['total'] ?? 0;
+      // Optimized loop for large datasets (2k+ safe)
+      for (int i = 0; i < subjectsData.length; i++) {
+        final subj = subjectsData[i];
+
+        String name = (subj['subject'] ?? "Unknown").toString();
+        int present = (subj['present'] ?? 0) is int
+            ? subj['present']
+            : int.tryParse(subj['present'].toString()) ?? 0;
+
+        int total = (subj['total'] ?? 0) is int
+            ? subj['total']
+            : int.tryParse(subj['total'].toString()) ?? 0;
+
+        // Prevent negative values
+        if (present > total) present = total;
+
         fetchedData[name] = {"present": present, "total": total};
         subjList.add(name);
       }
@@ -70,14 +89,24 @@ class _AttendancePageState extends State<AttendancePage> {
     if (!isLoading) {
       if (selectedSubject == "All") {
         attendanceData.forEach((_, data) {
-          presentDays += data['present'] ?? 0;
-          absentDays += (data['total'] ?? 0) - (data['present'] ?? 0);
+          int p = data['present'] ?? 0;
+          int t = data['total'] ?? 0;
+
+          if (p > t) p = t;
+
+          presentDays += p;
+          absentDays += (t - p);
         });
       } else {
         final data = attendanceData[selectedSubject];
         if (data != null) {
-          presentDays = data['present'] ?? 0;
-          absentDays = (data['total'] ?? 0) - (data['present'] ?? 0);
+          int p = data['present'] ?? 0;
+          int t = data['total'] ?? 0;
+
+          if (p > t) p = t;
+
+          presentDays = p;
+          absentDays = (t - p);
         }
       }
     }
@@ -114,14 +143,44 @@ class _AttendancePageState extends State<AttendancePage> {
                       borderRadius: BorderRadius.circular(18),
                     ),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          widget.rollNo,
-                          style: const TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                        CircleAvatar(
+                          radius: 20,
+                          backgroundColor: Colors.white,
+                          backgroundImage: widget.image.isNotEmpty
+                              ? NetworkImage(widget.image)
+                              : null,
+                          child: widget.image.isEmpty
+                              ? const Icon(Icons.person)
+                              : null,
+                        ),
+                        const SizedBox(width: 20),
+
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                widget.username,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(height: 2),
+                              Text(
+                                widget.rollNo,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                         IconButton(
@@ -171,6 +230,7 @@ class _AttendancePageState extends State<AttendancePage> {
                                   const SizedBox(height: 25),
                                   DropdownButtonFormField<String>(
                                     value: selectedSubject,
+                                    isExpanded: true,
                                     decoration: InputDecoration(
                                       labelText: "Select Subject",
                                       border: OutlineInputBorder(
@@ -180,12 +240,16 @@ class _AttendancePageState extends State<AttendancePage> {
                                     items: ["All", ...subjects].map((sub) {
                                       return DropdownMenuItem(
                                         value: sub,
-                                        child: Text(sub),
+                                        child: Text(
+                                          sub,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
                                       );
                                     }).toList(),
                                     onChanged: (value) {
+                                      if (value == null) return;
                                       setState(() {
-                                        selectedSubject = value!;
+                                        selectedSubject = value;
                                       });
                                     },
                                   ),
@@ -245,8 +309,9 @@ class _AttendancePageState extends State<AttendancePage> {
                                               color: Colors.white,
                                             ),
                                           ),
-                                          SizedBox(height: 20),
-                                          if (percentage < 75) ...[
+                                          const SizedBox(height: 20),
+                                          if (percentage < 75 &&
+                                              selectedSubject != "All") ...[
                                             const SizedBox(height: 10),
                                             Text(
                                               "Warning: You are currently detained in $selectedSubject subject",

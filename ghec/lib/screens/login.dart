@@ -66,7 +66,8 @@ class _LoginPageState extends State<LoginPage> {
             context,
             MaterialPageRoute(
               builder: (context) => Afterlogin(
-                rollNo: result["username"],
+                rollNo: rollNo.text,
+                username: result["username"],
                 image: result['image'],
               ),
             ),
@@ -125,7 +126,8 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => Afterlogin(rollNo: rollNo.text, image: ""),
+          builder: (context) =>
+              Afterlogin(rollNo: rollNo.text, image: "", username: "user"),
         ),
       );
       return;
