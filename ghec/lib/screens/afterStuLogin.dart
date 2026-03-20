@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ghec/api/attendanceApi.dart';
 import 'package:ghec/screens/login.dart';
 import 'package:ghec/screens/showAttandance.dart';
+import 'package:ghec/screens/update.dart';
 
 class Afterlogin extends StatefulWidget {
   final String rollNo;
@@ -169,9 +170,18 @@ class _Afterlogin extends State<Afterlogin> {
 
                           /// FEES
                           _buildMenuButton(
-                            icon: Icons.currency_rupee,
-                            title: "Fees",
-                            onTap: () {},
+                            icon: Icons.edit,
+                            title: "Update Profile",
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => UpdateProfileRequestPage(
+                                    rollNo: widget.rollNo,
+                                  ),
+                                ),
+                              );
+                            },
                           ),
 
                           const SizedBox(height: 20),

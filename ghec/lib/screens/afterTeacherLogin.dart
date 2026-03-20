@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:ghec/screens/login.dart';
 import 'package:ghec/screens/markAttenddance.dart';
+import 'package:ghec/screens/requests_screen.dart';
 import 'addStu.dart';
+import 'register.dart';
 
 class Afterteacherlogin extends StatefulWidget {
   final String teacherId;
   final String image;
+  final String username;
 
   const Afterteacherlogin({
     super.key,
     required this.teacherId,
     required this.image,
+    required this.username,
   });
 
   @override
@@ -20,6 +24,8 @@ class Afterteacherlogin extends StatefulWidget {
 class _AfterteacherloginState extends State<Afterteacherlogin> {
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -31,17 +37,17 @@ class _AfterteacherloginState extends State<Afterteacherlogin> {
         ),
         child: Column(
           children: [
-            /// 🔹 Header
+            /// 🔹 HEADER
             SafeArea(
               child: Padding(
-                padding: const EdgeInsets.all(12),
+                padding: EdgeInsets.all(size.width * 0.03),
                 child: Material(
                   elevation: 10,
                   borderRadius: BorderRadius.circular(18),
                   child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 18,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: size.width * 0.04,
+                      vertical: size.height * 0.02,
                     ),
                     decoration: BoxDecoration(
                       gradient: const LinearGradient(
@@ -50,34 +56,44 @@ class _AfterteacherloginState extends State<Afterteacherlogin> {
                       borderRadius: BorderRadius.circular(18),
                     ),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        /// Teacher Info
-                        Row(
-                          children: [
-                            CircleAvatar(
-                              radius: 22,
-                              backgroundImage: widget.image.isNotEmpty
-                                  ? NetworkImage(widget.image)
-                                  : null,
-                              child: widget.image.isEmpty
-                                  ? const Icon(Icons.person)
-                                  : null,
-                            ),
-                            const SizedBox(width: 12),
-                            Text(
-                              widget.teacherId,
-                              style: const TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 1,
-                                color: Colors.white,
+                        /// 👤 Profile + Name
+                        Expanded(
+                          child: Row(
+                            children: [
+                              CircleAvatar(
+                                radius: size.width * 0.06,
+                                backgroundImage: widget.image.isNotEmpty
+                                    ? NetworkImage(widget.image)
+                                    : null,
+                                child: widget.image.isEmpty
+                                    ? const Icon(Icons.person)
+                                    : null,
                               ),
-                            ),
-                          ],
+
+                              SizedBox(width: size.width * 0.03),
+
+                              /// 🔥 Responsive Name
+                              Expanded(
+                                child: Tooltip(
+                                  message: widget.username,
+                                  child: Text(
+                                    widget.username,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                      fontSize: size.width * 0.045,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
 
-                        /// Logout Button
+                        /// 🚪 Logout
                         TextButton.icon(
                           onPressed: () {
                             Navigator.pushReplacement(
@@ -87,10 +103,17 @@ class _AfterteacherloginState extends State<Afterteacherlogin> {
                               ),
                             );
                           },
-                          icon: const Icon(Icons.logout, color: Colors.white),
-                          label: const Text(
+                          icon: Icon(
+                            Icons.logout,
+                            color: Colors.white,
+                            size: size.width * 0.05,
+                          ),
+                          label: Text(
                             "Logout",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: size.width * 0.035,
+                            ),
                           ),
                         ),
                       ],
@@ -100,10 +123,10 @@ class _AfterteacherloginState extends State<Afterteacherlogin> {
               ),
             ),
 
-            /// 🔹 Dashboard Area
+            /// 🔹 DASHBOARD
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
+                padding: EdgeInsets.symmetric(horizontal: size.width * 0.03),
                 child: Material(
                   elevation: 12,
                   borderRadius: const BorderRadius.vertical(
@@ -118,25 +141,24 @@ class _AfterteacherloginState extends State<Afterteacherlogin> {
                       ),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(25),
+                      padding: EdgeInsets.all(size.width * 0.06),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
+                          Text(
                             "Teacher Dashboard",
                             style: TextStyle(
-                              fontSize: 26,
+                              fontSize: size.width * 0.065,
                               fontWeight: FontWeight.bold,
-                              letterSpacing: 1,
                             ),
                           ),
 
-                          const SizedBox(height: 30),
+                          SizedBox(height: size.height * 0.04),
 
-                          /// Mark Attendance
                           _buildMenuButton(
+                            context,
                             icon: Icons.check_circle_outline,
-                            title: "Mark Attendance ->",
+                            title: "Mark Attendance",
                             onTap: () {
                               Navigator.push(
                                 context,
@@ -147,12 +169,12 @@ class _AfterteacherloginState extends State<Afterteacherlogin> {
                             },
                           ),
 
-                          const SizedBox(height: 20),
+                          SizedBox(height: size.height * 0.025),
 
-                          /// Add Student
                           _buildMenuButton(
+                            context,
                             icon: Icons.person_add,
-                            title: "Add Student ->",
+                            title: "Add Student",
                             onTap: () {
                               Navigator.push(
                                 context,
@@ -163,13 +185,20 @@ class _AfterteacherloginState extends State<Afterteacherlogin> {
                             },
                           ),
 
-                          const SizedBox(height: 20),
+                          SizedBox(height: size.height * 0.025),
 
-                          /// Add Result
                           _buildMenuButton(
-                            icon: Icons.assignment,
-                            title: "Add Result ->",
-                            onTap: () {},
+                            context,
+                            icon: Icons.remove_from_queue,
+                            title: "Requests",
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const RequestsScreen(),
+                                ),
+                              );
+                            },
                           ),
                         ],
                       ),
@@ -184,12 +213,15 @@ class _AfterteacherloginState extends State<Afterteacherlogin> {
     );
   }
 
-  /// 🔹 Dashboard Buttons
-  Widget _buildMenuButton({
+  /// 🔹 Responsive Button
+  Widget _buildMenuButton(
+    BuildContext context, {
     required IconData icon,
     required String title,
     required VoidCallback onTap,
   }) {
+    final size = MediaQuery.of(context).size;
+
     return Material(
       elevation: 4,
       borderRadius: BorderRadius.circular(15),
@@ -197,7 +229,10 @@ class _AfterteacherloginState extends State<Afterteacherlogin> {
         borderRadius: BorderRadius.circular(15),
         onTap: onTap,
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),
+          padding: EdgeInsets.symmetric(
+            horizontal: size.width * 0.05,
+            vertical: size.height * 0.025,
+          ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             gradient: LinearGradient(
@@ -206,15 +241,19 @@ class _AfterteacherloginState extends State<Afterteacherlogin> {
           ),
           child: Row(
             children: [
-              Icon(icon, color: Colors.white, size: 28),
-              const SizedBox(width: 20),
-              Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                  letterSpacing: 0.5,
+              Icon(icon, color: Colors.white, size: size.width * 0.07),
+              SizedBox(width: size.width * 0.05),
+
+              Expanded(
+                child: Text(
+                  title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: size.width * 0.05,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ],
