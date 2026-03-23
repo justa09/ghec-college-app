@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "D:/vikasjusta/ghec/ghec/linux"
+    "cmake.sourceDirectory": "D:/vikasjusta/ghec/ghec/linux",
+    "java.configuration.updateBuildConfiguration": "disabled"
 }

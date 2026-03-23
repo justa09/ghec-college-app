@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "301933851535",
+    "project_id": "student-notify-app-bf1d1",
+    "storage_bucket": "student-notify-app-bf1d1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:301933851535:android:960ba210379873e13b51fa",
+        "android_client_info": {
+          "package_name": "com.example.ghec"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBO7MPmkrkEZcRtAYOJEo40Rd3bkWaruSQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -3,6 +3,9 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 from .models import Attendance
 from students.models import Student, Subject
+import requests
+from django.http import HttpResponse
+
 
 @csrf_exempt
 def submit_attendance(request):
@@ -32,12 +35,12 @@ def submit_attendance(request):
                     s_num = student.student_phone
                     name = student.full_name
                     sub_name = subject.sub_name
+                    send_sms()
                     print()
                     print(f"{name} is absent in {sub_name} class | Message sent to Parent: {p_num}")
                     print()
                     print(f"Dear {name}, you are marked Absent in {sub_name} class | SMS to: {s_num}")
                     print()
-
                 attendance_objects.append(
                     Attendance(
                         student=student,
@@ -125,3 +128,59 @@ def showAttendance(request):
     except Exception as e:
         print(f"Error: {e}")
         return JsonResponse({"error": "Something went wrong"}, status=500)
+    
+
+
+
+
+
+# def send_sms(request):
+#     url = "https://api.msg91.com/api/v5/flow/"
+
+#     payload = {
+#         "flow_id": "69bfe480f414a57d1b0d06e2",   # template ka flow id
+#         "mobiles": "918219858452",  # parent ka number
+
+#         "name": "Vikas Justa",            # ##name## variable
+#         "subject": "DBMS"           # ##subject## variable
+#     }
+
+#     headers = {
+#         "authkey": "502428ADfW8W1TCq69bfe6b6P1",
+#         "Content-Type": "application/json"
+#     }
+
+#     response = requests.post(url, json=payload, headers=headers)
+
+#     return HttpResponse(response.text)
+
+
+
+
+
+
+# def send_sms(request):
+def send_sms():
+    url = "https://api.msg91.com/api/v2/sendsms"
+
+    payload = {
+        "sender": "TESTIN",   # testing sender
+        "route": "4",
+        "country": "91",
+        "sms": [
+            {
+                "message": "Hello Vikas, this is a test SMS from your Django app 🚀",
+                "to": ["918219858452"]   # apna number daal
+            }
+        ]
+    }
+
+    headers = {
+        "authkey": "502428ADfW8W1TCq69bfe6b6P1",
+        "Content-Type": "application/json"
+    }
+    print("Function Called Sucessfully")
+
+    response = requests.post(url, json=payload, headers=headers)
+
+    return HttpResponse(response.text)

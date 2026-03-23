@@ -19,6 +19,8 @@ from django.urls import path,include
 from students.views import fetch_students_api
 from django.conf import settings
 from django.conf.urls.static import static
+from attendance.views import submit_attendance, showAttendance,send_sms
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +29,7 @@ urlpatterns = [
     path('api/', include('attendance.urls')),
     path('api/', include('students.urls')),
    path('api/', include('teachers.urls')),
+   path('send/', send_sms),
 
 
     path('students/', include('students.urls')),  # ⬅️ students app ke urls include kar rahe
