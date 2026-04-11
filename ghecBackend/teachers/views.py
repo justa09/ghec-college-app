@@ -6,3 +6,4 @@ from django.core.files.base import ContentFile
 @csrf_exempt
 def addTeacherApi(request):
  print("Done bahi pounch gya url pe..!")
+ return JsonResponse({"Message":"Reached To URL\nBut This Method In Not Implemented Yet"})

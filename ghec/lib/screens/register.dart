@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ghec/screens/login.dart';
+// import 'package:http/http.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
@@ -117,7 +118,7 @@ class _RegisterPage extends State<RegisterPage> {
         context: context,
         builder: (context) => AlertDialog(
           title: const Text("Success"),
-          content: const Text("Teacher Registered Successfully"),
+          content: const Text("Method Not Builded Yet"),
           actions: [
             TextButton(
               onPressed: () {

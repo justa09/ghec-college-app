@@ -32,7 +32,8 @@ urlpatterns = [
    path('send/', send_sms),
 
 
-    path('students/', include('students.urls')),  # ⬅️ students app ke urls include kar rahe
+    path('students/', include('students.urls')), 
+    path('api/posts/', include('posts.urls')),
 ]
 
 # Media files serve karne ke liye (development only)

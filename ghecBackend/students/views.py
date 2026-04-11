@@ -15,7 +15,6 @@ def check_auth(request):
         return False
     return True
 
-
 @csrf_exempt
 def add_student(request):
 

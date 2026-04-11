@@ -4,6 +4,7 @@ import 'package:ghec/screens/markAttenddance.dart';
 import 'package:ghec/screens/requests_screen.dart';
 import 'addStu.dart';
 import 'register.dart';
+import 'makePost.dart';
 
 class Afterteacherlogin extends StatefulWidget {
   final String teacherId;
@@ -57,7 +58,6 @@ class _AfterteacherloginState extends State<Afterteacherlogin> {
                     ),
                     child: Row(
                       children: [
-                        /// 👤 Profile + Name
                         Expanded(
                           child: Row(
                             children: [
@@ -70,10 +70,8 @@ class _AfterteacherloginState extends State<Afterteacherlogin> {
                                     ? const Icon(Icons.person)
                                     : null,
                               ),
-
                               SizedBox(width: size.width * 0.03),
 
-                              /// 🔥 Responsive Name
                               Expanded(
                                 child: Tooltip(
                                   message: widget.username,
@@ -93,7 +91,6 @@ class _AfterteacherloginState extends State<Afterteacherlogin> {
                           ),
                         ),
 
-                        /// 🚪 Logout
                         TextButton.icon(
                           onPressed: () {
                             Navigator.pushReplacement(
@@ -132,6 +129,7 @@ class _AfterteacherloginState extends State<Afterteacherlogin> {
                   borderRadius: const BorderRadius.vertical(
                     top: Radius.circular(30),
                   ),
+                  clipBehavior: Clip.antiAlias, // clean edges
                   child: Container(
                     width: double.infinity,
                     decoration: const BoxDecoration(
@@ -142,65 +140,111 @@ class _AfterteacherloginState extends State<Afterteacherlogin> {
                     ),
                     child: Padding(
                       padding: EdgeInsets.all(size.width * 0.06),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Teacher Dashboard",
-                            style: TextStyle(
-                              fontSize: size.width * 0.065,
-                              fontWeight: FontWeight.bold,
+
+                      /// ✅ FIX: scroll added (main fix)
+                      child: SingleChildScrollView(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Teacher Dashboard",
+                              style: TextStyle(
+                                fontSize: size.width * 0.065,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
 
-                          SizedBox(height: size.height * 0.04),
+                            SizedBox(height: size.height * 0.03),
 
-                          _buildMenuButton(
-                            context,
-                            icon: Icons.check_circle_outline,
-                            title: "Mark Attendance",
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const Markattendance(),
-                                ),
-                              );
-                            },
-                          ),
+                            _buildMenuButton(
+                              context,
+                              icon: Icons.check_circle_outline,
+                              title: "Mark Attendance",
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const Markattendance(),
+                                  ),
+                                );
+                              },
+                            ),
 
-                          SizedBox(height: size.height * 0.025),
+                            SizedBox(height: size.height * 0.02),
 
-                          _buildMenuButton(
-                            context,
-                            icon: Icons.person_add,
-                            title: "Add Student",
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const Addstu(),
-                                ),
-                              );
-                            },
-                          ),
+                            _buildMenuButton(
+                              context,
+                              icon: Icons.person_add,
+                              title: "Add Student",
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const Addstu(),
+                                  ),
+                                );
+                              },
+                            ),
 
-                          SizedBox(height: size.height * 0.025),
+                            SizedBox(height: size.height * 0.02),
 
-                          _buildMenuButton(
-                            context,
-                            icon: Icons.remove_from_queue,
-                            title: "Requests",
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const RequestsScreen(),
-                                ),
-                              );
-                            },
-                          ),
-                        ],
+                            _buildMenuButton(
+                              context,
+                              icon: Icons.remove_from_queue,
+                              title: "Requests",
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const RequestsScreen(),
+                                  ),
+                                );
+                              },
+                            ),
+
+                            SizedBox(height: size.height * 0.02),
+
+                            _buildMenuButton(
+                              context,
+                              icon: Icons.app_registration_outlined,
+                              title: "Register Here",
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const RegisterPage(),
+                                  ),
+                                );
+                              },
+                            ),
+
+                            SizedBox(height: size.height * 0.02),
+
+                            _buildMenuButton(
+                              context,
+                              icon: Icons.add_photo_alternate,
+                              title: "Make Post",
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => MakePost(
+                                      Tid: widget.teacherId,
+                                      Tname: widget.username,
+                                      image: widget.image,
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+
+                            SizedBox(
+                              height: size.height * 0.02,
+                            ), // bottom safety
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -213,7 +257,6 @@ class _AfterteacherloginState extends State<Afterteacherlogin> {
     );
   }
 
-  /// 🔹 Responsive Button
   Widget _buildMenuButton(
     BuildContext context, {
     required IconData icon,
@@ -231,7 +274,7 @@ class _AfterteacherloginState extends State<Afterteacherlogin> {
         child: Container(
           padding: EdgeInsets.symmetric(
             horizontal: size.width * 0.05,
-            vertical: size.height * 0.025,
+            vertical: size.height * 0.022, // slightly reduced (responsive)
           ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),

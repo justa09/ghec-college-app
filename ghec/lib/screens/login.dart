@@ -1,8 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:ghec/screens/afterTeacherLogin.dart';
-import 'package:ghec/screens/register.dart';
-import 'about.dart';
+import 'content.dart';
 import 'afterStuLogin.dart';
 import 'package:http/http.dart' as http;
 import 'package:ghec/api/apiServices.dart';
@@ -19,6 +18,8 @@ class _LoginPageState extends State<LoginPage> {
 
   final TextEditingController rollNo = TextEditingController();
   final TextEditingController passw = TextEditingController();
+
+  bool _obscureText = true; // <-- Password visibility toggle
 
   @override
   void dispose() {
@@ -152,13 +153,12 @@ class _LoginPageState extends State<LoginPage> {
             end: Alignment.bottomRight,
           ),
         ),
-
         child: SingleChildScrollView(
           child: Column(
             children: [
               SizedBox(height: screenHeight * .08),
 
-              /// Simple Header (Logo + GHEC)
+              /// Header
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
@@ -167,9 +167,7 @@ class _LoginPageState extends State<LoginPage> {
                       radius: 40,
                       backgroundImage: AssetImage("assets/images/logo.jpg"),
                     ),
-
                     const SizedBox(width: 12),
-
                     const Text(
                       "GHEC",
                       style: TextStyle(
@@ -190,11 +188,9 @@ class _LoginPageState extends State<LoginPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Container(
                   padding: const EdgeInsets.all(25),
-
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(22),
-
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black.withOpacity(.15),
@@ -203,7 +199,6 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ],
                   ),
-
                   child: Column(
                     children: [
                       const Text(
@@ -213,16 +208,17 @@ class _LoginPageState extends State<LoginPage> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-
                       const SizedBox(height: 25),
 
-                      /// Roll Number
+                      /// Roll Number / Teacher Id
                       SizedBox(
                         width: screenWidth * .85,
                         child: TextFormField(
+                          keyboardType: TextInputType.number,
+                          maxLength: 20,
                           controller: rollNo,
                           decoration: InputDecoration(
-                            labelText: "Teacher Id / Roll No ",
+                            labelText: "Teacher Id / Roll No",
                             prefixIcon: const Icon(Icons.person),
                             filled: true,
                             fillColor: Colors.grey.shade100,
@@ -240,7 +236,7 @@ class _LoginPageState extends State<LoginPage> {
                         width: screenWidth * .85,
                         child: TextFormField(
                           controller: passw,
-                          obscureText: true,
+                          obscureText: _obscureText,
                           decoration: InputDecoration(
                             labelText: "Password",
                             prefixIcon: const Icon(Icons.lock),
@@ -248,6 +244,18 @@ class _LoginPageState extends State<LoginPage> {
                             fillColor: Colors.grey.shade100,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(15),
+                            ),
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                _obscureText
+                                    ? Icons.visibility_off
+                                    : Icons.visibility,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  _obscureText = !_obscureText;
+                                });
+                              },
                             ),
                           ),
                         ),
@@ -259,12 +267,10 @@ class _LoginPageState extends State<LoginPage> {
                       Container(
                         width: screenWidth * .85,
                         padding: const EdgeInsets.symmetric(vertical: 10),
-
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
                           color: Colors.grey.shade100,
                         ),
-
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -283,7 +289,6 @@ class _LoginPageState extends State<LoginPage> {
                                 const Text("Teacher"),
                               ],
                             ),
-
                             Row(
                               children: [
                                 Radio<String>(
@@ -309,17 +314,14 @@ class _LoginPageState extends State<LoginPage> {
                       SizedBox(
                         width: screenWidth * .85,
                         height: 55,
-
                         child: ElevatedButton(
                           onPressed: login,
-
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.green.shade600,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(14),
                             ),
                           ),
-
                           child: const Text(
                             "Login",
                             style: TextStyle(
@@ -337,19 +339,7 @@ class _LoginPageState extends State<LoginPage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const RegisterPage(),
-                            ),
-                          );
-                        },
-                        child: const Text("Register Here"),
-                      ),
-
-                      TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const AboutPage(),
+                              builder: (context) => const Content(),
                             ),
                           );
                         },
