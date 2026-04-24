@@ -1,7 +1,9 @@
 from django.db import models
 from django.utils import timezone
+from django.conf import settings
 
 class Student(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     roll_num = models.CharField(max_length=20, primary_key=True)
     full_name = models.CharField(max_length=200)
     branch = models.CharField(max_length=30)

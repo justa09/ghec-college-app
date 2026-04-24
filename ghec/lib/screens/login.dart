@@ -1,9 +1,7 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:ghec/screens/afterTeacherLogin.dart';
 import 'content.dart';
 import 'afterStuLogin.dart';
-import 'package:http/http.dart' as http;
 import 'package:ghec/api/apiServices.dart';
 
 class LoginPage extends StatefulWidget {
@@ -14,12 +12,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  String? usertype;
-
   final TextEditingController rollNo = TextEditingController();
   final TextEditingController passw = TextEditingController();
 
-  bool _obscureText = true; // <-- Password visibility toggle
+  bool _obscureText = true;
 
   @override
   void dispose() {
@@ -29,12 +25,12 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void login() async {
-    if (rollNo.text.isEmpty || passw.text.isEmpty || usertype == null) {
+    if (rollNo.text.isEmpty || passw.text.isEmpty) {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
           title: const Text("Warning..!"),
-          content: const Text("Please fill all fields and select user type..!"),
+          content: const Text("Please enter ID and password..!"),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
@@ -47,31 +43,43 @@ class _LoginPageState extends State<LoginPage> {
     }
 
     try {
-      final result = await ApiService.login(rollNo.text, passw.text, usertype!);
+      final result = await ApiService.login(rollNo.text.trim(), passw.text);
 
       if (result["status"] == "success") {
-        if (usertype == "teacher") {
+        if (result["role"] == "teacher") {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
               builder: (context) => Afterteacherlogin(
-                teacherId: rollNo.text,
-                username: result["username"],
-                image: result['image'],
+                teacherId: result["id"] ?? rollNo.text.trim(),
+                username: result["name"] ?? "",
+                image: result["image"] ?? "",
               ),
             ),
           );
-        }
-
-        if (usertype == "student") {
+        } else if (result["role"] == "student") {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
               builder: (context) => Afterlogin(
-                rollNo: rollNo.text,
-                username: result["username"],
-                image: result['image'],
+                rollNo: result["id"] ?? rollNo.text.trim(),
+                username: result["name"] ?? "",
+                image: result["image"] ?? "",
               ),
+            ),
+          );
+        } else {
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: const Text("Login Failed"),
+              content: const Text("Invalid user role"),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text("OK"),
+                ),
+              ],
             ),
           );
         }
@@ -92,16 +100,29 @@ class _LoginPageState extends State<LoginPage> {
       }
     } catch (e) {
       print(e);
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text("Error"),
+          content: const Text("Something went wrong. Please try again."),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text("OK"),
+            ),
+          ],
+        ),
+      );
     }
   }
 
   void _directLogin() {
-    if (rollNo.text.isEmpty || passw.text.isEmpty || usertype == null) {
+    if (rollNo.text.isEmpty || passw.text.isEmpty) {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
           title: const Text("Warning..!"),
-          content: const Text("Please fill all fields and select user type..!"),
+          content: const Text("Please enter ID and password..!"),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
@@ -113,30 +134,7 @@ class _LoginPageState extends State<LoginPage> {
       return;
     }
 
-    if (usertype == "teacher") {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => Afterteacherlogin(
-            teacherId: rollNo.text,
-            image: "",
-            username: 'user',
-          ),
-        ),
-      );
-      return;
-    }
-
-    if (usertype == "student") {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) =>
-              Afterlogin(rollNo: rollNo.text, image: "", username: "user"),
-        ),
-      );
-      return;
-    }
+    // Direct login disabled for secure auth flow
   }
 
   @override
@@ -158,7 +156,6 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               SizedBox(height: screenHeight * .08),
 
-              /// Header
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
@@ -183,7 +180,6 @@ class _LoginPageState extends State<LoginPage> {
 
               SizedBox(height: screenHeight * .05),
 
-              /// Login Card
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Container(
@@ -208,13 +204,13 @@ class _LoginPageState extends State<LoginPage> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+
                       const SizedBox(height: 25),
 
-                      /// Roll Number / Teacher Id
                       SizedBox(
                         width: screenWidth * .85,
                         child: TextFormField(
-                          keyboardType: TextInputType.number,
+                          keyboardType: TextInputType.text,
                           maxLength: 20,
                           controller: rollNo,
                           decoration: InputDecoration(
@@ -231,7 +227,6 @@ class _LoginPageState extends State<LoginPage> {
 
                       const SizedBox(height: 20),
 
-                      /// Password
                       SizedBox(
                         width: screenWidth * .85,
                         child: TextFormField(
@@ -261,56 +256,8 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
 
-                      const SizedBox(height: 25),
-
-                      /// User Type
-                      Container(
-                        width: screenWidth * .85,
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Colors.grey.shade100,
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Row(
-                              children: [
-                                Radio<String>(
-                                  value: "teacher",
-                                  groupValue: usertype,
-                                  activeColor: Colors.green,
-                                  onChanged: (val) {
-                                    setState(() {
-                                      usertype = val;
-                                    });
-                                  },
-                                ),
-                                const Text("Teacher"),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Radio<String>(
-                                  value: "student",
-                                  groupValue: usertype,
-                                  activeColor: Colors.green,
-                                  onChanged: (val) {
-                                    setState(() {
-                                      usertype = val;
-                                    });
-                                  },
-                                ),
-                                const Text("Student"),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-
                       const SizedBox(height: 30),
 
-                      /// Login Button
                       SizedBox(
                         width: screenWidth * .85,
                         height: 55,

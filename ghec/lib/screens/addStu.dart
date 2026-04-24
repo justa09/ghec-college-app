@@ -2,7 +2,7 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:flutter/services.dart'; // 👈 ye required for inputFormatters
+import 'package:flutter/services.dart';
 import '../api/addStuAPI.dart';
 
 class Addstu extends StatefulWidget {
@@ -14,6 +14,8 @@ class Addstu extends StatefulWidget {
 
 class _Addstu extends State<Addstu> {
   final TextEditingController rollController = TextEditingController();
+  final TextEditingController passwordController =
+      TextEditingController(); // ✅ added
   final TextEditingController nameController = TextEditingController();
   final TextEditingController semesterController = TextEditingController();
   final TextEditingController admissionController = TextEditingController();
@@ -57,13 +59,13 @@ class _Addstu extends State<Addstu> {
     if (photo != null) setState(() => studentImage = File(photo.path));
   }
 
-  // 🔹 Updated inputField to accept keyboardType & inputFormatters
   Widget inputField(
     String label,
     TextEditingController controller,
     IconData icon, {
     TextInputType keyboardType = TextInputType.text,
     List<TextInputFormatter>? inputFormatters,
+    bool obscureText = false, // ✅ added
   }) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 14),
@@ -71,6 +73,7 @@ class _Addstu extends State<Addstu> {
         controller: controller,
         keyboardType: keyboardType,
         inputFormatters: inputFormatters,
+        obscureText: obscureText, // ✅ used
         decoration: InputDecoration(
           labelText: label,
           prefixIcon: Icon(icon),
@@ -111,6 +114,7 @@ class _Addstu extends State<Addstu> {
 
   Future<void> submitStudent() async {
     if (rollController.text.isEmpty ||
+        passwordController.text.isEmpty || // ✅ added
         nameController.text.isEmpty ||
         selectedBranch == null ||
         selectedGender == null ||
@@ -122,6 +126,10 @@ class _Addstu extends State<Addstu> {
     }
 
     Map<String, dynamic> studentData = {
+      "username": rollController.text, // ✅ auth field
+      "password": passwordController.text, // ✅ auth field
+      "role": "student", // ✅ auth field
+
       "roll": rollController.text,
       "name": nameController.text,
       "branch": selectedBranch,
@@ -146,7 +154,9 @@ class _Addstu extends State<Addstu> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Student Saved Successfully")),
       );
+
       rollController.clear();
+      passwordController.clear(); // ✅ added
       nameController.clear();
       semesterController.clear();
       admissionController.clear();
@@ -155,6 +165,7 @@ class _Addstu extends State<Addstu> {
       studentPhoneController.clear();
       emailController.clear();
       addressController.clear();
+
       setState(() {
         selectedBranch = null;
         selectedGender = null;
@@ -203,7 +214,6 @@ class _Addstu extends State<Addstu> {
                       ),
                       const SizedBox(height: 20),
 
-                      // 🔹 Roll Number (number only)
                       inputField(
                         "Roll Number",
                         rollController,
@@ -212,6 +222,14 @@ class _Addstu extends State<Addstu> {
                         inputFormatters: [
                           FilteringTextInputFormatter.digitsOnly,
                         ],
+                      ),
+
+                      // ✅ Password field added
+                      inputField(
+                        "Password",
+                        passwordController,
+                        Icons.lock,
+                        obscureText: true,
                       ),
 
                       inputField("Full Name", nameController, Icons.person),
@@ -236,7 +254,6 @@ class _Addstu extends State<Addstu> {
 
                       const SizedBox(height: 14),
 
-                      // 🔹 Semester (number only)
                       inputField(
                         "Semester",
                         semesterController,

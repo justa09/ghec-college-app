@@ -1,59 +1,69 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from django.contrib.auth import authenticate
+
 from students.models import Student
 from teachers.models import Teacher
 
 
 @api_view(['POST'])
 def login_api(request):
+    username = request.data.get('username', '').strip()
+    password = request.data.get('password', '')
 
-    UserId = request.data.get('username')
-    passw = request.data.get('password')
-    usertype = request.data.get('usertype')
+    if not username or not password:
+        return Response({
+            "status": "error",
+            "message": "Username and password required"
+        }, status=400)
 
-    if not UserId:
-        return Response({"status": "error", "message": "Invalid credentials"})
+    user = authenticate(username=username, password=password)
 
-    if usertype == "student":
+    if user is None:
+        return Response({
+            "status": "error",
+            "message": "Invalid credentials"
+        }, status=401)
+
+    if user.role == "student":
         try:
-            stu = Student.objects.get(roll_num=UserId)
-
-            image_url = None
-            if stu.image:
-                image_url = request.build_absolute_uri(stu.image.url)
-            else:
-                image_url = ""
+            stu = Student.objects.get(user=user)
+            image_url = request.build_absolute_uri(stu.image.url) if stu.image else ""
 
             return Response({
                 "status": "success",
-                "username": stu.full_name,
-                "rollNo": stu.roll_num,
+                "role": "student",
+                "name": stu.full_name,
+                "id": stu.roll_num,
                 "image": image_url
-            })
+            }, status=200)
 
         except Student.DoesNotExist:
-            return Response({"status": "error", "message": "Student not found"})
+            return Response({
+                "status": "error",
+                "message": "Student profile not found"
+            }, status=404)
 
-
-    elif usertype == "teacher":
+    if user.role == "teacher":
         try:
-            teacher = Teacher.objects.get(tId=UserId)
-
-            image_url = None
-            if teacher.image:
-                image_url = request.build_absolute_uri(teacher.image.url)
-            else :
-                image_url =""
+            teacher = Teacher.objects.get(user=user)
+            image_url = request.build_absolute_uri(teacher.image.url) if teacher.image else ""
 
             return Response({
                 "status": "success",
-                "username": teacher.full_name,
-                "rollNo": teacher.tId,
+                "role": "teacher",
+                "name": teacher.full_name,
+                "id": teacher.tId,
                 "image": image_url
-            })
+            }, status=200)
 
         except Teacher.DoesNotExist:
-            return Response({"status": "error", "message": "Teacher not found"})
+            return Response({
+                "status": "error",
+                "message": "Teacher profile not found"
+            }, status=404)
 
-
-    return Response({"status": "error", "message": "Invalid usertype"})
+    return Response({
+        "status": "error",
+        "message": "Invalid role"
+    }, status=400)

@@ -16,20 +16,24 @@ class StudentApi {
             url,
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': 'Bearer ghec_secret_123', // 🔐 security token
+              'Authorization': 'Bearer ghec_secret_123',
             },
             body: jsonEncode(studentData),
           )
           .timeout(const Duration(seconds: 10));
 
-      if (response.statusCode == 200) {
+      final responseData = jsonDecode(response.body);
+
+      // ✅ Accept both 200 and 201 (created)
+      if (response.statusCode == 200 || response.statusCode == 201) {
         return true;
       } else {
-        print('Error: ${response.statusCode} ${response.body}');
+        print('❌ Error: ${response.statusCode}');
+        print('📩 Message: ${responseData['message'] ?? response.body}');
         return false;
       }
     } catch (e) {
-      print('Exception in addStudent: $e');
+      print('🔥 Exception in addStudent: $e');
       return false;
     }
   }
@@ -51,23 +55,18 @@ class StudentApi {
       final url = Uri.parse(urlStr);
 
       final response = await http
-          .get(
-            url,
-            headers: {
-              'Authorization': 'Bearer ghec_secret_123', // 🔐 security token
-            },
-          )
+          .get(url, headers: {'Authorization': 'Bearer ghec_secret_123'})
           .timeout(const Duration(seconds: 10));
 
       if (response.statusCode == 200) {
         final List data = jsonDecode(response.body);
         return data.cast<Map<String, dynamic>>();
       } else {
-        print('Error: ${response.statusCode}');
+        print('❌ Error: ${response.statusCode}');
         return [];
       }
     } catch (e) {
-      print('Exception in getStudents: $e');
+      print('🔥 Exception in getStudents: $e');
       return [];
     }
   }
