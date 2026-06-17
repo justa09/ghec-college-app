@@ -21,10 +21,13 @@ class _MarkattendanceState extends State<Markattendance> {
   List<Map<String, dynamic>> subjects = [];
   List<Map<String, String>> students = [];
   Map<String, String> attendanceStatus = {};
+
   bool isLoading = false;
+  int total = 0;
 
   Future<void> fetchSubjects() async {
     if (selectedBranch == null || selectedSemester == null) return;
+
     setState(() => isLoading = true);
 
     final fetchedSubjects = await FetchSubjectApi().fetchSubjects(
@@ -41,15 +44,20 @@ class _MarkattendanceState extends State<Markattendance> {
 
   Future<void> fetchStudents() async {
     if (selectedBranch == null || selectedSemester == null) return;
+
     setState(() => isLoading = true);
 
     final fetchedStudents = await FetchStudentApi().fetchStudents(
       branches: [selectedBranch!],
-      semesters: [int.parse(selectedSemester!)],
+      semesters: [selectedSemester!],
     );
 
     setState(() {
-      students = fetchedStudents;
+      students = fetchedStudents["students"] != null
+          ? List<Map<String, String>>.from(fetchedStudents["students"])
+          : [];
+
+      total = fetchedStudents["total"] ?? students.length;
       attendanceStatus = {};
       isLoading = false;
     });
@@ -57,9 +65,9 @@ class _MarkattendanceState extends State<Markattendance> {
 
   Future<void> submitAttendance() async {
     if (selectedSubject == null) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(const SnackBar(content: Text("Select a subject first")));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Select a subject first")),
+      );
       return;
     }
 
@@ -71,10 +79,10 @@ class _MarkattendanceState extends State<Markattendance> {
     }
 
     final today = DateTime.now().toString().split(" ")[0];
-    int lectureNo = 1;
+    const int lectureNo = 1;
 
-    List<Map<String, dynamic>> payload = students.map((student) {
-      final rollNum = student["roll_num"]!;
+    final List<Map<String, dynamic>> payload = students.map((student) {
+      final rollNum = student["roll_num"] ?? "";
       final status = attendanceStatus[rollNum] ?? "A";
 
       return {
@@ -86,7 +94,7 @@ class _MarkattendanceState extends State<Markattendance> {
       };
     }).toList();
 
-    bool success = await AttendanceApi().submitAttendance(payload);
+    final bool success = await AttendanceApi().submitAttendance(payload);
 
     if (success) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -121,14 +129,12 @@ class _MarkattendanceState extends State<Markattendance> {
           padding: const EdgeInsets.all(14),
           child: Column(
             children: [
-              /// Dropdown Section
               _buildDropdownCard(),
 
               const SizedBox(height: 12),
 
-              /// Fetch Button
               ElevatedButton.icon(
-                onPressed: fetchStudents,
+                onPressed: isLoading ? null : fetchStudents,
                 icon: const Icon(Icons.people),
                 label: const Text("Fetch Students"),
                 style: ElevatedButton.styleFrom(
@@ -144,11 +150,31 @@ class _MarkattendanceState extends State<Markattendance> {
 
               const SizedBox(height: 10),
 
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(
+                  vertical: 12,
+                  horizontal: 16,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                child: Text(
+                  "Fetched Students = $total",
+                  style: const TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 10),
+
               if (isLoading) const CircularProgressIndicator(),
 
               const SizedBox(height: 10),
 
-              /// Student List
               Expanded(
                 child: Container(
                   decoration: const BoxDecoration(
@@ -162,7 +188,8 @@ class _MarkattendanceState extends State<Markattendance> {
                     itemCount: students.length,
                     itemBuilder: (context, index) {
                       final student = students[index];
-                      final rollNum = student["roll_num"]!;
+                      final rollNum = student["roll_num"] ?? "";
+                      final fullName = student["full_name"] ?? "";
                       final status = attendanceStatus[rollNum];
 
                       return Card(
@@ -173,7 +200,7 @@ class _MarkattendanceState extends State<Markattendance> {
                         ),
                         child: ListTile(
                           title: Text(
-                            student["full_name"]!,
+                            fullName,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
@@ -182,14 +209,11 @@ class _MarkattendanceState extends State<Markattendance> {
                             ),
                           ),
                           subtitle: Text("Roll No: $rollNum"),
-
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               _statusButton("P", rollNum, status),
-
                               const SizedBox(width: 6),
-
                               _statusButton("A", rollNum, status),
                             ],
                           ),
@@ -202,14 +226,14 @@ class _MarkattendanceState extends State<Markattendance> {
 
               const SizedBox(height: 8),
 
-              /// Submit Button
               ElevatedButton.icon(
-                onPressed: submitAttendance,
+                onPressed: isLoading ? null : submitAttendance,
                 icon: const Icon(Icons.save),
                 label: const Text("Submit Attendance"),
                 style: ElevatedButton.styleFrom(
                   elevation: 6,
                   backgroundColor: Colors.green.shade700,
+                  foregroundColor: Colors.white,
                   minimumSize: const Size.fromHeight(52),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
@@ -235,10 +259,14 @@ class _MarkattendanceState extends State<Markattendance> {
       style: ElevatedButton.styleFrom(
         elevation: 3,
         backgroundColor: isSelected
-            ? (value == "P" ? Colors.green : Colors.red)
+            ? value == "P"
+                ? Colors.green
+                : Colors.red
             : Colors.grey.shade200,
         foregroundColor: isSelected ? Colors.white : Colors.black,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
       ),
       child: Text(value),
     );
@@ -247,26 +275,35 @@ class _MarkattendanceState extends State<Markattendance> {
   Widget _buildDropdownCard() {
     return Card(
       elevation: 6,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(14),
         child: Column(
           children: [
             DropdownButtonFormField<String>(
-              value: selectedBranch,
+              initialValue: selectedBranch,
               decoration: const InputDecoration(
                 labelText: "Select Branch",
                 border: OutlineInputBorder(),
                 prefixIcon: Icon(Icons.account_tree),
               ),
               items: branches
-                  .map((b) => DropdownMenuItem(value: b, child: Text(b)))
+                  .map(
+                    (b) => DropdownMenuItem(
+                      value: b,
+                      child: Text(b),
+                    ),
+                  )
                   .toList(),
               onChanged: (val) {
                 setState(() {
                   selectedBranch = val;
                   selectedSubject = null;
                   subjects = [];
+                  students = [];
+                  total = 0;
                 });
 
                 if (selectedBranch != null && selectedSemester != null) {
@@ -278,20 +315,27 @@ class _MarkattendanceState extends State<Markattendance> {
             const SizedBox(height: 12),
 
             DropdownButtonFormField<String>(
-              value: selectedSemester,
+              initialValue: selectedSemester,
               decoration: const InputDecoration(
                 labelText: "Select Semester",
                 border: OutlineInputBorder(),
                 prefixIcon: Icon(Icons.school),
               ),
               items: semesters
-                  .map((s) => DropdownMenuItem(value: s, child: Text(s)))
+                  .map(
+                    (s) => DropdownMenuItem(
+                      value: s,
+                      child: Text(s),
+                    ),
+                  )
                   .toList(),
               onChanged: (val) {
                 setState(() {
                   selectedSemester = val;
                   selectedSubject = null;
                   subjects = [];
+                  students = [];
+                  total = 0;
                 });
 
                 if (selectedBranch != null && selectedSemester != null) {
@@ -303,7 +347,8 @@ class _MarkattendanceState extends State<Markattendance> {
             const SizedBox(height: 12),
 
             DropdownButtonFormField<Map<String, dynamic>>(
-              value: selectedSubject,
+              initialValue: selectedSubject,
+              isExpanded: true,
               decoration: const InputDecoration(
                 labelText: "Select Subject",
                 border: OutlineInputBorder(),
@@ -311,15 +356,22 @@ class _MarkattendanceState extends State<Markattendance> {
               ),
               items: subjects
                   .map(
-                    (sub) => DropdownMenuItem(
+                    (sub) => DropdownMenuItem<Map<String, dynamic>>(
                       value: sub,
-                      child: Text(sub["name"], overflow: TextOverflow.ellipsis),
+                      child: Text(
+                        sub["name"]?.toString() ?? "",
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                   )
                   .toList(),
               onChanged: subjects.isEmpty
                   ? null
-                  : (val) => setState(() => selectedSubject = val),
+                  : (val) {
+                      setState(() {
+                        selectedSubject = val;
+                      });
+                    },
             ),
           ],
         ),

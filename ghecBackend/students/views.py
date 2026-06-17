@@ -140,11 +140,25 @@ def add_student(request):
 
 
 def fetch_students_api(request):
-    branches = request.GET.get("branches", "")
-    semesters = request.GET.get("semesters", "")
+    branches = request.GET.get("branches", "").strip()
+    semesters = request.GET.get("semesters", "").strip()
+    print(f"Received branches: {branches}, semesters: {semesters}")
 
-    branches_list = branches.split(",") if branches else []
-    semesters_list = [int(s) for s in semesters.split(",")] if semesters else []
+    branches_list = []
+    semesters_list = []
+
+    # handle branches
+    if branches and branches.lower() != "all":
+        branches_list = [b.strip() for b in branches.split(",") if b.strip()]
+
+    # handle semesters safely
+    if semesters and semesters.lower() != "all":
+        try:
+            semesters_list = [
+                int(s) for s in semesters.split(",") if s.strip().isdigit()
+            ]
+        except:
+            semesters_list = []
 
     students = Student.objects.all()
 
@@ -154,21 +168,19 @@ def fetch_students_api(request):
     if semesters_list:
         students = students.filter(semester__in=semesters_list)
 
-    attendance_count = 20
-
     data = [
         {
             "roll_num": s.roll_num,
             "full_name": s.full_name,
             "branch": s.branch,
             "semester": s.semester,
-            "attendance_count": attendance_count
+            "attendance_count": 20
         }
         for s in students
     ]
+    print(len(data))
 
     return JsonResponse(data, safe=False)
-
 
 def get_subjects(request):
     branch = request.GET.get("branch")
@@ -186,3 +198,38 @@ def get_subjects(request):
     ).values("subject_id", "sub_name")
 
     return JsonResponse(list(subjects), safe=False)
+
+
+
+@csrf_exempt
+def delete_student(request):
+    roll_num= request.GET.get("roll_num")
+    
+    if request.method != "DELETE":
+        return JsonResponse({
+            "status": "error",
+            "message": "Only DELETE method allowed"
+        }, status=405)
+
+    try:
+        student = Student.objects.get(roll_num=roll_num)
+        user = student.user
+        student.delete()
+        user.delete()
+
+        return JsonResponse({
+            "status": "success",
+            "message": f"Student with roll number {roll_num} deleted successfully"
+        })
+
+    except Student.DoesNotExist:
+        return JsonResponse({
+            "status": "error",
+            "message": f"No student found with roll number {roll_num}"
+        }, status=404)
+
+    except Exception as e:
+        return JsonResponse({
+            "status": "error",
+            "message": str(e)
+        }, status=400)

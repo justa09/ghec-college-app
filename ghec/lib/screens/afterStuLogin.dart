@@ -28,259 +28,267 @@ class _Afterlogin extends State<Afterlogin> {
     );
   }
 
+  String getFirstName(String name) {
+    if (name.trim().isEmpty) return "Student";
+    return name.trim().split(" ").first;
+  }
+
+  int getCrossAxisCount(double width) {
+    if (width >= 900) return 3;
+    if (width >= 600) return 2;
+    return 2;
+  }
+
+  double getCardRatio(double width) {
+    if (width >= 900) return 1.2;
+    if (width >= 600) return 1.05;
+    return 0.95;
+  }
+
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
+    final size = MediaQuery.of(context).size;
+    final width = size.width;
+
+    final bool isSmall = width < 380;
+    final double horizontalPadding = width < 420 ? 16 : 22;
+    final double maxContentWidth = width >= 900 ? 850 : 620;
 
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Color(0xff11998e), Color(0xff38ef7d)],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
-
-        child: Column(
-          children: [
-            /// ---------- TOP BAR ----------
-            SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.all(12),
-                child: Material(
-                  elevation: 10,
-                  borderRadius: BorderRadius.circular(18),
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 18,
-                    ),
-                    decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        colors: [Color(0xff11998e), Color(0xff0f9b0f)],
-                      ),
-                      borderRadius: BorderRadius.circular(18),
-                    ),
-
-                    child: Row(
-                      children: [
-                        /// PROFILE IMAGE
-                        CircleAvatar(
-                          radius: 22,
-                          backgroundColor: Colors.white,
-                          backgroundImage: widget.image.isNotEmpty
-                              ? NetworkImage(widget.image)
-                              : null,
-                          child: widget.image.isEmpty
-                              ? const Icon(Icons.person)
-                              : null,
-                        ),
-
-                        const SizedBox(width: 12),
-
-                        /// ROLL NUMBER
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                widget.username,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              Text(
-                                widget.rollNo,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white70,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-
-                        /// LOGOUT BUTTON
-                        IconButton(
-                          onPressed: logout,
-                          icon: const Icon(Icons.logout, color: Colors.white),
-                        ),
-                      ],
-                    ),
+      backgroundColor: const Color(0xfff5f8f6),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          return Stack(
+            children: [
+              Container(
+                height: 250,
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Color(0xff047857),
+                      Color(0xff10b981),
+                      Color(0xff34d399),
+                    ],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(36),
+                    bottomRight: Radius.circular(36),
                   ),
                 ),
               ),
-            ),
-
-            /// ---------- DASHBOARD ----------
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                child: Material(
-                  elevation: 12,
-                  borderRadius: const BorderRadius.vertical(
-                    top: Radius.circular(30),
-                  ),
-
-                  child: Container(
-                    width: double.infinity,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.vertical(
-                        top: Radius.circular(30),
-                      ),
-                    ),
-
-                    child: Padding(
-                      padding: EdgeInsets.all(width * 0.06),
-
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          /// DASHBOARD TITLE
-                          const Text(
-                            "Dashboard",
-                            style: TextStyle(
-                              fontSize: 26,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 1,
+              SafeArea(
+                child: SingleChildScrollView(
+                  child: Center(
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(maxWidth: maxContentWidth),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: horizontalPadding,
+                          vertical: 18,
+                        ),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                CircleAvatar(
+                                  radius: isSmall ? 28 : 34,
+                                  backgroundColor: Colors.white,
+                                  backgroundImage:
+                                      widget.image.isNotEmpty
+                                          ? NetworkImage(widget.image)
+                                          : null,
+                                  child: widget.image.isEmpty
+                                      ? Icon(
+                                          Icons.person,
+                                          color: Colors.green.shade700,
+                                        )
+                                      : null,
+                                ),
+                                const SizedBox(width: 12),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        getFirstName(widget.username),
+                                        style: TextStyle(
+                                          fontSize: isSmall ? 22 : 26,
+                                          fontWeight: FontWeight.w900,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      Text(
+                                        widget.rollNo,
+                                        style: const TextStyle(
+                                          color: Colors.white70,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: logout,
+                                  icon: const Icon(
+                                    Icons.logout,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
 
-                          const SizedBox(height: 30),
+                            const SizedBox(height: 30),
 
-                          /// RESULT
-                          _buildMenuButton(
-                            icon: Icons.bar_chart,
-                            title: "Result",
-                            onTap: () {
-                              print("Result Clicked");
-                            },
-                          ),
-
-                          const SizedBox(height: 20),
-
-                          /// FEES
-                          _buildMenuButton(
-                            icon: Icons.edit,
-                            title: "Update Profile",
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (_) => UpdateProfileRequestPage(
-                                    rollNo: widget.rollNo,
+                            Container(
+                              padding: const EdgeInsets.all(20),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(28),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(.12),
+                                    blurRadius: 35,
+                                    offset: const Offset(0, 18),
                                   ),
-                                ),
-                              );
-                            },
-                          ),
-
-                          const SizedBox(height: 20),
-
-                          /// ATTENDANCE
-                          _buildMenuButton(
-                            icon: Icons.check_circle_outline,
-                            title: "Attendance",
-                            onTap: () async {
-                              List<dynamic>? attendanceData =
-                                  await ShowAttendanceApi().showAttendance([
-                                    widget.rollNo,
-                                  ]);
-
-                              if (attendanceData == null ||
-                                  attendanceData.isEmpty) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text("Failed to fetch attendance"),
+                                ],
+                              ),
+                              child: GridView.count(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                crossAxisCount: getCrossAxisCount(width),
+                                crossAxisSpacing: 14,
+                                mainAxisSpacing: 14,
+                                childAspectRatio: getCardRatio(width),
+                                children: [
+                                  _dashboardCard(
+                                    icon: Icons.bar_chart,
+                                    title: "Result",
+                                    onTap: () {
+                                      print("Result Clicked");
+                                    },
                                   ),
-                                );
-                                return;
-                              }
-
-                              List<String> subjects = [];
-
-                              if (attendanceData.first.containsKey(
-                                'subjects',
-                              )) {
-                                print("this is rollno ${widget.rollNo}");
-                                for (var subj
-                                    in attendanceData.first['subjects']) {
-                                  subjects.add(subj['subject'].toString());
-                                }
-                              }
-
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => AttendancePage(
-                                    username: widget.username,
-                                    rollNo: widget.rollNo,
-                                    subjects: subjects,
-                                    image: widget.image,
+                                  _dashboardCard(
+                                    icon: Icons.edit,
+                                    title: "Update Profile",
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (_) =>
+                                              UpdateProfileRequestPage(
+                                            rollNo: widget.rollNo,
+                                          ),
+                                        ),
+                                      );
+                                    },
                                   ),
-                                ),
-                              );
-                            },
-                          ),
-                        ],
+                                  _dashboardCard(
+                                    icon: Icons.check_circle_outline,
+                                    title: "Attendance",
+                                    onTap: () async {
+                                      List<dynamic>? attendanceData =
+                                          await ShowAttendanceApi()
+                                              .showAttendance([
+                                        widget.rollNo,
+                                      ]);
+
+                                      if (attendanceData == null ||
+                                          attendanceData.isEmpty) {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          const SnackBar(
+                                            content: Text(
+                                              "Failed to fetch attendance",
+                                            ),
+                                          ),
+                                        );
+                                        return;
+                                      }
+
+                                      List<String> subjects = [];
+
+                                      if (attendanceData.first
+                                          .containsKey('subjects')) {
+                                        for (var subj in attendanceData.first[
+                                            'subjects']) {
+                                          subjects.add(
+                                            subj['subject'].toString(),
+                                          );
+                                        }
+                                      }
+
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              AttendancePage(
+                                            username: widget.username,
+                                            rollNo: widget.rollNo,
+                                            subjects: subjects,
+                                            image: widget.image,
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
-        ),
+            ],
+          );
+        },
       ),
     );
   }
 
-  /// ---------- MENU BUTTON ----------
-  Widget _buildMenuButton({
+  Widget _dashboardCard({
     required IconData icon,
     required String title,
     required VoidCallback onTap,
   }) {
     return Material(
-      elevation: 4,
-      borderRadius: BorderRadius.circular(15),
-
+      color: Colors.transparent,
       child: InkWell(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(22),
         onTap: onTap,
-
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),
-
+        child: Ink(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            gradient: LinearGradient(
-              colors: [Colors.green.shade400, Colors.green.shade600],
+            color: const Color(0xfff7fbf8),
+            borderRadius: BorderRadius.circular(22),
+            border: Border.all(
+              color: Colors.green.withOpacity(.2),
             ),
           ),
-
-          child: Row(
+          padding: const EdgeInsets.all(16),
+          child: Column(
             children: [
-              Icon(icon, color: Colors.white, size: 28),
-
-              const SizedBox(width: 20),
-
+              Container(
+                height: 50,
+                width: 50,
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    colors: [Color(0xff047857), Color(0xff10b981)],
+                  ),
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                child: Icon(icon, color: Colors.white),
+              ),
+              const Spacer(),
               Text(
                 title,
+                textAlign: TextAlign.center,
                 style: const TextStyle(
-                  fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                  letterSpacing: 0.5,
                 ),
               ),
             ],

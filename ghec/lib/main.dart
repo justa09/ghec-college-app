@@ -6,7 +6,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Hive.initFlutter(); // 🔥 Hive init
-  await Hive.openBox('todoBox'); // 🔥 Hive DB
+  await Hive.openBox('todoBox'); // 
 
   runApp(const MyApp());
 }

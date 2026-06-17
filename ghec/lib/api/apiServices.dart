@@ -3,9 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService {
-  /// Emulator → http://10.0.2.2:8000
-  /// Real Phone → http://192.168.x.x:8000
-  static const String baseUrl = "http://192.168.43.46:8000";
+  /// Emulator → http://30.0.2.2:8000
+  static const String baseUrl = "http://192.168.43.148:8000";
 
   static const Map<String, String> headers = {
     "Content-Type": "application/json",
@@ -25,7 +24,7 @@ class ApiService {
             headers: headers,
             body: jsonEncode({"username": username, "password": password}),
           )
-          .timeout(const Duration(seconds: 10));
+          .timeout(const Duration(seconds: 30));
 
       debugPrint("LOGIN STATUS: ${response.statusCode}");
       debugPrint("LOGIN BODY: ${response.body}");
@@ -55,7 +54,7 @@ class ApiService {
               "new_value": newValue,
             }),
           )
-          .timeout(const Duration(seconds: 10));
+          .timeout(const Duration(seconds: 30));
 
       debugPrint("CREATE REQUEST STATUS: ${response.statusCode}");
       debugPrint("CREATE REQUEST BODY: ${response.body}");
@@ -71,7 +70,7 @@ class ApiService {
     final url = Uri.parse("$baseUrl/api/request/all/");
 
     try {
-      final response = await http.get(url).timeout(const Duration(seconds: 10));
+      final response = await http.get(url).timeout(const Duration(seconds: 30));
 
       debugPrint("GET REQUESTS STATUS: ${response.statusCode}");
       debugPrint("GET REQUESTS BODY: ${response.body}");
@@ -95,7 +94,7 @@ class ApiService {
     try {
       final response = await http
           .post(url, headers: headers, body: jsonEncode({"action": action}))
-          .timeout(const Duration(seconds: 10));
+          .timeout(const Duration(seconds: 30));
 
       debugPrint("HANDLE REQUEST STATUS: ${response.statusCode}");
       debugPrint("HANDLE REQUEST BODY: ${response.body}");

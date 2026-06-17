@@ -44,14 +44,14 @@ def login_api(request):
                 "message": "Student profile not found"
             }, status=404)
 
-    if user.role == "teacher":
+    if user.role == "teacher" or user.role == "HOD" or user.role == "Principal" or user.role == "Lect" or user.role ==  "Management":
         try:
             teacher = Teacher.objects.get(user=user)
             image_url = request.build_absolute_uri(teacher.image.url) if teacher.image else ""
 
             return Response({
                 "status": "success",
-                "role": "teacher",
+                "role": user.role,
                 "name": teacher.full_name,
                 "id": teacher.tId,
                 "image": image_url
@@ -62,8 +62,9 @@ def login_api(request):
                 "status": "error",
                 "message": "Teacher profile not found"
             }, status=404)
+    
 
     return Response({
         "status": "error",
-        "message": "Invalid role"
+        "message": f"Invalid role: {user.role}"
     }, status=400)

@@ -19,19 +19,16 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
 
-    // 🔹 Animation Controller
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 2),
     );
 
-    // 🔹 Fade Animation
     _fadeAnimation = Tween<double>(
       begin: 0,
       end: 1,
     ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeIn));
 
-    // 🔹 Scale Animation
     _scaleAnimation = Tween<double>(
       begin: 0.8,
       end: 1,
@@ -39,7 +36,6 @@ class _SplashScreenState extends State<SplashScreen>
 
     _controller.forward();
 
-    // 🔹 Navigate to Login after delay
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
@@ -57,90 +53,137 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     double screenH = MediaQuery.of(context).size.height;
+    double screenW = MediaQuery.of(context).size.width;
+
+    final bool isSmall = screenW < 380;
+    final double logoSize = isSmall ? 105 : 120;
 
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Color(0xff11998e), Color(0xff38ef7d)],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+      backgroundColor: const Color(0xfff5f8f6),
+      body: Stack(
+        children: [
+          Container(
+            height: screenH * 0.48,
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color(0xff047857),
+                  Color(0xff10b981),
+                  Color(0xff34d399),
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(42),
+                bottomRight: Radius.circular(42),
+              ),
+            ),
           ),
-        ),
-        child: SizedBox.expand(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBox(height: screenH * 0.20),
-
-              // 🔹 Animated Logo
-              FadeTransition(
-                opacity: _fadeAnimation,
-                child: ScaleTransition(
-                  scale: _scaleAnimation,
-                  child: Container(
-                    padding: const EdgeInsets.all(30),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.9),
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.25),
-                          blurRadius: 20,
-                          spreadRadius: 3,
+          SafeArea(
+            child: SizedBox.expand(
+              child: Column(
+                children: [
+                  SizedBox(height: screenH * 0.16),
+                  FadeTransition(
+                    opacity: _fadeAnimation,
+                    child: ScaleTransition(
+                      scale: _scaleAnimation,
+                      child: Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(.18),
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: Colors.white.withOpacity(.35),
+                            width: 1.4,
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(.12),
+                              blurRadius: 24,
+                              offset: const Offset(0, 12),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                    child: Image.asset(
-                      "assets/images/logo.jpg",
-                      height: 120,
-                      width: 120,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 30),
-
-              // 🔹 Animated Title
-              FadeTransition(
-                opacity: _fadeAnimation,
-                child: const Text(
-                  "G.H.E.C.",
-                  style: TextStyle(
-                    fontSize: 50,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 4,
-                    color: Color.fromARGB(255, 0, 117, 4),
-                    shadows: [
-                      Shadow(
-                        color: Colors.black45,
-                        offset: Offset(2, 2),
-                        blurRadius: 4,
+                        child: Container(
+                          padding: const EdgeInsets.all(18),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(.12),
+                                blurRadius: 35,
+                                offset: const Offset(0, 18),
+                              ),
+                            ],
+                          ),
+                          child: ClipOval(
+                            child: Image.asset(
+                              "assets/images/logo.jpg",
+                              height: logoSize,
+                              width: logoSize,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
                       ),
-                    ],
+                    ),
                   ),
-                ),
-              ),
-
-              // 🔹 Tagline
-              const Spacer(),
-
-              // 🔹 Loading Indicator
-              FadeTransition(
-                opacity: _fadeAnimation,
-                child: const Padding(
-                  padding: EdgeInsets.only(bottom: 40),
-                  child: CircularProgressIndicator(
-                    color: Colors.white,
-                    strokeWidth: 3,
+                  const SizedBox(height: 30),
+                  FadeTransition(
+                    opacity: _fadeAnimation,
+                    child: const Text(
+                      "G.H.E.C.",
+                      style: TextStyle(
+                        fontSize: 50,
+                        fontWeight: FontWeight.w900,
+                        letterSpacing: 4,
+                        color: Colors.white,
+                        shadows: [
+                          Shadow(
+                            color: Colors.black26,
+                            offset: Offset(0, 4),
+                            blurRadius: 10,
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
-                ),
+                  const Spacer(),
+                  FadeTransition(
+                    opacity: _fadeAnimation,
+                    child: Container(
+                      margin: const EdgeInsets.only(bottom: 40),
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(22),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(.12),
+                            blurRadius: 30,
+                            offset: const Offset(0, 14),
+                          ),
+                        ],
+                      ),
+                      child: const SizedBox(
+                        height: 26,
+                        width: 26,
+                        child: CircularProgressIndicator(
+                          color: Color(0xff047857),
+                          strokeWidth: 3,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

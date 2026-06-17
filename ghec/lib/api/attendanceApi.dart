@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class AttendanceApi {
-  final String baseUrl = "http://192.168.43.46:8000/api";
+  final String baseUrl = "http://192.168.43.148:8000/api";
 
   /// Submit bulk attendance
   /// payload = List of {roll_num, subject_id, status, lecture_no, date}
@@ -32,7 +32,7 @@ class AttendanceApi {
 }
 
 class ShowAttendanceApi {
-  final String baseUrl = "http://192.168.43.46:8000/api";
+  final String baseUrl = "http://192.168.43.148:8000/api";
 
   /// Existing method (FIXED + SAFE)
   Future<List<dynamic>?> showAttendance(List<String> rollNumbers) async {

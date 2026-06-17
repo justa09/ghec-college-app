@@ -1,27 +1,26 @@
-
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-import json
-from .models import Post
+from .models import Post, PostImage
 from teachers.models import Teacher
 
 
 @csrf_exempt
 def create_post(request):
+    print("Received request to create post..!")
     if request.method != "POST":
         return JsonResponse({"error": "Only POST allowed"}, status=405)
 
     try:
-        data = json.loads(request.body)
-
-        teacher_id = data.get("teacher_id")
-        description = data.get("description")
+        teacher_id = request.POST.get("teacher_id")
+        description = request.POST.get("description")
+        images = request.FILES.getlist("images")
 
         if not teacher_id or not description:
             return JsonResponse({"error": "Missing fields"}, status=400)
 
         try:
-            teacher = Teacher.objects.get(id=teacher_id)
+            # ✅ FIX: id → tId
+            teacher = Teacher.objects.get(tId=teacher_id)
         except Teacher.DoesNotExist:
             return JsonResponse({"error": "Teacher not found"}, status=404)
 
@@ -30,6 +29,12 @@ def create_post(request):
             description=description
         )
 
+        for image in images:
+            PostImage.objects.create(
+                post=post,
+                image=image
+            )
+
         return JsonResponse({
             "message": "Post created successfully",
             "post_id": post.id
@@ -37,8 +42,6 @@ def create_post(request):
 
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=400)
-    
-
 
 
 @csrf_exempt
@@ -47,15 +50,18 @@ def get_posts(request):
         return JsonResponse({"error": "Only GET allowed"}, status=405)
 
     try:
-        posts = Post.objects.filter(is_active=True).order_by('-created_at')
+        posts = Post.objects.filter(is_active=True).order_by("-created_at")
 
         data = []
         for post in posts:
             data.append({
                 "id": post.id,
-                "username": post.username.full_name,  # teacher ka naam
+                "username": post.username.full_name,
                 "description": post.description,
-                "image": post.image.url if post.image else None,
+                "images": [
+                    request.build_absolute_uri(img.image.url)
+                    for img in post.images.all()
+                ],
                 "created_at": post.created_at.strftime("%Y-%m-%d %H:%M")
             })
 

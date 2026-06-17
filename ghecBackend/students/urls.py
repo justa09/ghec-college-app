@@ -13,5 +13,8 @@ urlpatterns = [
       path('request/create/', create_update_request),
     path('request/all/', get_all_requests),
     path('request/<int:request_id>/', handle_request),
+    path('api/fetch_students/', fetch_students_api, name='fetch_students_api'),
+    path('delete_student/', views.delete_student, name='delete_student'),
 ]
+
 

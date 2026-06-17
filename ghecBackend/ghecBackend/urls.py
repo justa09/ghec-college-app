@@ -1,39 +1,35 @@
-"""
-URL configuration for ghecBackend project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path, include
 from students.views import fetch_students_api
 from django.conf import settings
 from django.conf.urls.static import static
-from attendance.views import submit_attendance, showAttendance,send_sms
-
+from attendance.views import submit_attendance, showAttendance, send_sms
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/auth/',include('auth_app.urls')),
+
+    # Auth
+    path('api/auth/', include('auth_app.urls')),
+
+    # Students
     path('api/fetch_students/', fetch_students_api),
-    path('api/', include('attendance.urls')),
     path('api/', include('students.urls')),
-   path('api/', include('teachers.urls')),
-   path('send/', send_sms),
+    path('students/', include('students.urls')),
 
+    # Teachers
+    path('api/', include('teachers.urls')),
 
-    path('students/', include('students.urls')), 
+    # Attendance
+    path('api/', include('attendance.urls')),
+
+    # Posts (✅ only ONE clean route)
     path('api/posts/', include('posts.urls')),
+
+    # SMS
+    path('send/', send_sms),
+    path('/api/delete_student/', include('students.urls')),
+    path('api/fetch_teachers/', include('teachers.urls')),
+   path('api/delete_teacher/', include('teachers.urls')),
 ]
 
 # Media files serve karne ke liye (development only)
