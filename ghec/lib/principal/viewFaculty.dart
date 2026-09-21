@@ -10,7 +10,7 @@ class ViewFaculty extends StatefulWidget {
 
 class _ViewFacultyState extends State<ViewFaculty> {
   final TeacherApi teacherApi = TeacherApi(
-    baseURL: "http://192.168.43.148:8000/api",
+    baseURL: "http://192.168.43.46:8000/api",
   );
 
   List<Map<String, String>> teachers = [];
@@ -127,12 +127,10 @@ class _ViewFacultyState extends State<ViewFaculty> {
                           itemBuilder: (context, index) {
                             final teacher = teachers[index];
 
-                            final teacherId =
-                                teacher["Tid"]?.toString() ?? "";
+                            final teacherId = teacher["Tid"]?.toString() ?? "";
                             final fullName =
                                 teacher["FullName"]?.toString() ?? "";
-                            final phone =
-                                teacher["Tphone"]?.toString() ?? "";
+                            final phone = teacher["Tphone"]?.toString() ?? "";
                             final dept = teacher["dept"]?.toString() ?? "";
                             final role = teacher["role"]?.toString() ?? "";
 

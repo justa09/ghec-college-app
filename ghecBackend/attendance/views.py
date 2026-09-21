@@ -35,7 +35,8 @@ def submit_attendance(request):
                     s_num = student.student_phone
                     name = student.full_name
                     sub_name = subject.sub_name
-                    send_sms()
+                    send_sms(p_num,name,sub_name)
+                    send_sms(s_num,name,sub_name)
                     print()
                     print(f"{name} is absent in {sub_name} class | Message sent to Parent: {p_num}")
                     print()
@@ -78,7 +79,7 @@ def showAttendance(request):
 
         results = []
         for rollnumber in data:
-            print(f"Fetching Attendance for {rollnumber}")
+            # print(f"Fetching Attendance for {rollnumber}")
 
             student = Student.objects.filter(roll_num=rollnumber).first()
             if not student:
@@ -160,17 +161,17 @@ def showAttendance(request):
 
 
 # def send_sms(request):
-def send_sms():
+def send_sms(num, name, sub):
     url = "https://api.msg91.com/api/v2/sendsms"
 
     payload = {
-        "sender": "TESTIN",   # testing sender
+        "sender": "GHEC",   # testing sender
         "route": "4",
         "country": "91",
         "sms": [
             {
-                "message": "Hello Vikas, this is a test SMS from your Django app 🚀",
-                "to": ["918219858452"]   # apna number daal
+                "message": f"{name} is marked absent in {sub} class",
+                "to": [num]
             }
         ]
     }
@@ -179,8 +180,140 @@ def send_sms():
         "authkey": "502428ADfW8W1TCq69bfe6b6P1",
         "Content-Type": "application/json"
     }
-    print("Function Called Sucessfully")
 
-    response = requests.post(url, json=payload, headers=headers)
+    print("Function Called Successfully")
 
-    return HttpResponse(response.text)
+    try:
+        response = requests.post(
+            url,
+            json=payload,
+            headers=headers,
+            timeout=30
+        )
+
+        if response.status_code == 200:
+            print("SMS Sent Successfully")
+        else:
+            print(f"SMS Failed | Status Code: {response.status_code}")
+            print(response.text)
+
+        return HttpResponse(response.text)
+
+    except requests.exceptions.RequestException as e:
+        print(f"SMS Error: {e}")
+        return HttpResponse("SMS Sending Failed", status=500)
+
+
+@csrf_exempt
+def showRecords(request):
+
+    # ==========================================================
+    # ONLY POST REQUEST
+    # ==========================================================
+
+    if request.method != "POST":
+        return JsonResponse(
+            {"error": "Only POST request is accepted"},
+            status=405
+        )
+
+    try:
+
+        # ======================================================
+        # READ JSON BODY
+        # ======================================================
+
+        data = json.loads(request.body)
+
+        roll_no = data.get("roll_no")
+        subject = data.get("subject")
+        status = data.get("status")
+
+        # ======================================================
+        # VALIDATION
+        # ======================================================
+
+        if not roll_no or not subject or not status:
+            return JsonResponse(
+                {
+                    "error": "roll_no, subject and status are required"
+                },
+                status=400
+            )
+
+        # ======================================================
+        # FETCH RECORDS
+        # ======================================================
+
+        # T = Total attendance records
+        if status == "T":
+
+            records = Attendance.objects.filter(
+                student__roll_num=roll_no,
+                subject__sub_name=subject,
+            ).order_by("-date")
+
+        else:
+
+            # Present / Absent etc.
+            records = Attendance.objects.filter(
+                student__roll_num=roll_no,
+                subject__sub_name=subject,
+                status=status
+            ).order_by("-date")
+
+       
+        # ======================================================
+        # CREATE RESPONSE LIST
+        # ======================================================
+
+        response = []
+
+        for record in records:
+
+            response.append({
+                "subject": record.subject.sub_name,
+                "date": record.date.strftime("%d-%m-%Y"),
+                "status": record.status,
+            })
+
+        # ======================================================
+        # FINAL RESPONSE
+        # ======================================================
+
+        return JsonResponse(
+            {
+                "roll_no": roll_no,
+                "subject": subject,
+                "status": status,
+                "total_records": records.count(),
+                "records": response,
+            },
+            status=200
+        )
+
+    # ==========================================================
+    # INVALID JSON
+    # ==========================================================
+
+    except json.JSONDecodeError:
+
+        return JsonResponse(
+            {"error": "Invalid JSON"},
+            status=400
+        )
+
+    # ==========================================================
+    # OTHER ERRORS
+    # ==========================================================
+
+    except Exception as e:
+
+        print("SHOW RECORDS ERROR:", e)
+
+        return JsonResponse(
+            {
+                "error": "Something went wrong"
+            },
+            status=500
+        )

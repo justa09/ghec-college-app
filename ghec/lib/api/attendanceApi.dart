@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class AttendanceApi {
-  final String baseUrl = "http://192.168.43.148:8000/api";
+  final String baseUrl = "http://192.168.43.46:8000/api";
 
   /// Submit bulk attendance
   /// payload = List of {roll_num, subject_id, status, lecture_no, date}
@@ -32,7 +32,7 @@ class AttendanceApi {
 }
 
 class ShowAttendanceApi {
-  final String baseUrl = "http://192.168.43.148:8000/api";
+  final String baseUrl = "http://192.168.43.46:8000/api";
 
   /// Existing method (FIXED + SAFE)
   Future<List<dynamic>?> showAttendance(List<String> rollNumbers) async {
@@ -164,5 +164,45 @@ class ShowAttendanceApi {
     }
 
     return result;
+  }
+}
+
+class AttendanceRecordsApi {
+  final String baseUrl = "http://192.168.43.46:8000/api";
+  Future<Map<String, dynamic>?> showRecords(
+    String rollNo,
+    String subject,
+    String status,
+  ) async {
+    final url = Uri.parse("$baseUrl/showRecords/");
+
+    try {
+      final response = await http.post(
+        url,
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode({
+          "roll_no": rollNo,
+          "subject": subject,
+          "status": status,
+        }),
+      );
+
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+
+        if (data is Map<String, dynamic>) {
+          return data;
+        } else {
+          print("Unexpected response format");
+          return null;
+        }
+      } else {
+        print("Failed: ${response.statusCode}, body: ${response.body}");
+        return null;
+      }
+    } catch (e) {
+      print("Error fetching records: $e");
+      return null;
+    }
   }
 }

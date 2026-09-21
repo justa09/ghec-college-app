@@ -19,7 +19,6 @@ class _Addstu extends State<Addstu> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController semesterController = TextEditingController();
-  final TextEditingController admissionController = TextEditingController();
   final TextEditingController parentNameController = TextEditingController();
   final TextEditingController parentPhoneController = TextEditingController();
   final TextEditingController studentPhoneController = TextEditingController();
@@ -28,7 +27,9 @@ class _Addstu extends State<Addstu> {
 
   String? selectedBranch;
   String? selectedGender;
+
   DateTime? dob;
+  DateTime? admissionDate;
 
   File? studentImage;
   final ImagePicker picker = ImagePicker();
@@ -37,10 +38,11 @@ class _Addstu extends State<Addstu> {
   bool isLoading = false;
 
   final List<String> branches = ["cse", "Mechanical", "Civil", "Electrical"];
+
   final List<String> genders = ["Male", "Female", "Other"];
 
   final StudentApi apiService = StudentApi(
-    baseUrl: "http://192.168.43.148:8000/api",
+    baseUrl: "http://192.168.43.46:8000/api",
   );
 
   @override
@@ -49,7 +51,6 @@ class _Addstu extends State<Addstu> {
     passwordController.dispose();
     nameController.dispose();
     semesterController.dispose();
-    admissionController.dispose();
     parentNameController.dispose();
     parentPhoneController.dispose();
     studentPhoneController.dispose();
@@ -57,6 +58,10 @@ class _Addstu extends State<Addstu> {
     addressController.dispose();
     super.dispose();
   }
+
+  // =========================
+  // DATE OF BIRTH PICKER
+  // =========================
 
   Future<void> pickDate() async {
     DateTime? picked = await showDatePicker(
@@ -80,23 +85,75 @@ class _Addstu extends State<Addstu> {
     );
 
     if (picked != null) {
-      setState(() => dob = picked);
+      setState(() {
+        dob = picked;
+      });
     }
   }
+
+  // =========================
+  // ADMISSION DATE PICKER
+  // =========================
+
+  Future<void> pickAdmissionDate() async {
+    DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime.now(),
+      builder: (context, child) {
+        return Theme(
+          data: Theme.of(context).copyWith(
+            colorScheme: const ColorScheme.light(
+              primary: Color(0xff059669),
+              onPrimary: Colors.white,
+              surface: Colors.white,
+              onSurface: Color(0xff111827),
+            ),
+          ),
+          child: child!,
+        );
+      },
+    );
+
+    if (picked != null) {
+      setState(() {
+        admissionDate = picked;
+      });
+    }
+  }
+
+  // =========================
+  // CAMERA
+  // =========================
 
   Future<void> pickFromCamera() async {
     final XFile? photo = await picker.pickImage(source: ImageSource.camera);
+
     if (photo != null) {
-      setState(() => studentImage = File(photo.path));
+      setState(() {
+        studentImage = File(photo.path);
+      });
     }
   }
 
+  // =========================
+  // GALLERY
+  // =========================
+
   Future<void> pickFromGallery() async {
     final XFile? photo = await picker.pickImage(source: ImageSource.gallery);
+
     if (photo != null) {
-      setState(() => studentImage = File(photo.path));
+      setState(() {
+        studentImage = File(photo.path);
+      });
     }
   }
+
+  // =========================
+  // IMAGE OPTIONS
+  // =========================
 
   void showImageOptions() {
     showModalBottomSheet(
@@ -105,9 +162,7 @@ class _Addstu extends State<Addstu> {
       builder: (_) => Container(
         decoration: const BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.vertical(
-            top: Radius.circular(26),
-          ),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(26)),
         ),
         child: SafeArea(
           top: false,
@@ -124,7 +179,9 @@ class _Addstu extends State<Addstu> {
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
+
                 const SizedBox(height: 12),
+
                 ListTile(
                   leading: Container(
                     height: 42,
@@ -147,6 +204,7 @@ class _Addstu extends State<Addstu> {
                     pickFromCamera();
                   },
                 ),
+
                 ListTile(
                   leading: Container(
                     height: 42,
@@ -177,6 +235,18 @@ class _Addstu extends State<Addstu> {
     );
   }
 
+  // =========================
+  // FORMAT DATE
+  // =========================
+
+  String formatDate(DateTime date) {
+    return "${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}";
+  }
+
+  // =========================
+  // SUBMIT STUDENT
+  // =========================
+
   Future<void> submitStudent() async {
     if (isLoading) return;
 
@@ -185,6 +255,7 @@ class _Addstu extends State<Addstu> {
         nameController.text.isEmpty ||
         selectedBranch == null ||
         semesterController.text.isEmpty ||
+        admissionDate == null ||
         parentNameController.text.isEmpty ||
         parentPhoneController.text.isEmpty ||
         selectedGender == null ||
@@ -199,6 +270,7 @@ class _Addstu extends State<Addstu> {
           ),
         ),
       );
+
       return;
     }
 
@@ -214,15 +286,22 @@ class _Addstu extends State<Addstu> {
       "name": nameController.text,
       "branch": selectedBranch,
       "semester": semesterController.text,
-      "admission_year": admissionController.text,
+
+      // IMPORTANT:
+      // admission_year removed
+      // admission_date added
+      "admission_date": formatDate(admissionDate!),
+
       "parent_name": parentNameController.text,
       "parent_phone": parentPhoneController.text,
       "student_phone": studentPhoneController.text,
       "email": emailController.text,
       "gender": selectedGender,
-      "dob":
-          "${dob!.year}-${dob!.month.toString().padLeft(2, '0')}-${dob!.day.toString().padLeft(2, '0')}",
+
+      "dob": formatDate(dob!),
+
       "address": addressController.text,
+
       if (studentImage != null)
         "image":
             "data:image/${studentImage!.path.split('.').last};base64,${base64Encode(studentImage!.readAsBytesSync())}",
@@ -248,11 +327,11 @@ class _Addstu extends State<Addstu> {
         ),
       );
 
+      // Clear fields
       rollController.clear();
       passwordController.clear();
       nameController.clear();
       semesterController.clear();
-      admissionController.clear();
       parentNameController.clear();
       parentPhoneController.clear();
       studentPhoneController.clear();
@@ -263,6 +342,7 @@ class _Addstu extends State<Addstu> {
         selectedBranch = null;
         selectedGender = null;
         dob = null;
+        admissionDate = null;
         studentImage = null;
         obscurePassword = true;
       });
@@ -279,6 +359,10 @@ class _Addstu extends State<Addstu> {
       );
     }
   }
+
+  // =========================
+  // INPUT DECORATION
+  // =========================
 
   InputDecoration inputDecoration({
     required String label,
@@ -325,11 +409,13 @@ class _Addstu extends State<Addstu> {
         borderRadius: BorderRadius.circular(16),
         borderSide: BorderSide(color: Colors.grey.shade200, width: 1.2),
       ),
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
     );
   }
+
+  // =========================
+  // INPUT FIELD
+  // =========================
 
   Widget inputField(
     String label,
@@ -356,15 +442,13 @@ class _Addstu extends State<Addstu> {
     );
   }
 
-  Widget fieldBox({
-    required double width,
-    required Widget child,
-  }) {
-    return SizedBox(
-      width: width,
-      child: child,
-    );
+  Widget fieldBox({required double width, required Widget child}) {
+    return SizedBox(width: width, child: child);
   }
+
+  // =========================
+  // DOB FIELD
+  // =========================
 
   Widget dateField(double width) {
     return SizedBox(
@@ -381,10 +465,7 @@ class _Addstu extends State<Addstu> {
           ),
           child: Row(
             children: [
-              Icon(
-                Icons.calendar_today_rounded,
-                color: Colors.green.shade700,
-              ),
+              Icon(Icons.calendar_today_rounded, color: Colors.green.shade700),
               const SizedBox(width: 12),
               Expanded(
                 child: RichText(
@@ -421,6 +502,68 @@ class _Addstu extends State<Addstu> {
     );
   }
 
+  // =========================
+  // ADMISSION DATE FIELD
+  // =========================
+
+  Widget admissionDateField(double width) {
+    return SizedBox(
+      width: width,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(16),
+        onTap: isLoading ? null : pickAdmissionDate,
+        child: Ink(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
+          decoration: BoxDecoration(
+            color: const Color(0xfff7fbf8),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: Colors.grey.shade200, width: 1.2),
+          ),
+          child: Row(
+            children: [
+              Icon(Icons.calendar_month_rounded, color: Colors.green.shade700),
+
+              const SizedBox(width: 12),
+
+              Expanded(
+                child: RichText(
+                  overflow: TextOverflow.ellipsis,
+                  text: TextSpan(
+                    text: admissionDate == null
+                        ? "Select Admission Date"
+                        : "${admissionDate!.day}-${admissionDate!.month}-${admissionDate!.year}",
+                    style: TextStyle(
+                      color: admissionDate == null
+                          ? Colors.grey.shade700
+                          : const Color(0xff111827),
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
+                    ),
+                    children: admissionDate == null
+                        ? const [
+                            TextSpan(
+                              text: " *",
+                              style: TextStyle(
+                                color: Colors.red,
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                          ]
+                        : [],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  // =========================
+  // IMAGE PICKER
+  // =========================
+
   Widget imagePickerBox() {
     return GestureDetector(
       onTap: isLoading ? null : showImageOptions,
@@ -429,11 +572,7 @@ class _Addstu extends State<Addstu> {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           gradient: const LinearGradient(
-            colors: [
-              Color(0xff047857),
-              Color(0xff10b981),
-              Color(0xff34d399),
-            ],
+            colors: [Color(0xff047857), Color(0xff10b981), Color(0xff34d399)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -448,7 +587,9 @@ class _Addstu extends State<Addstu> {
         child: CircleAvatar(
           radius: 58,
           backgroundColor: Colors.white,
-          backgroundImage: studentImage != null ? FileImage(studentImage!) : null,
+          backgroundImage: studentImage != null
+              ? FileImage(studentImage!)
+              : null,
           child: studentImage == null
               ? Icon(
                   Icons.camera_alt_rounded,
@@ -461,6 +602,10 @@ class _Addstu extends State<Addstu> {
     );
   }
 
+  // =========================
+  // BUILD
+  // =========================
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -468,10 +613,15 @@ class _Addstu extends State<Addstu> {
       body: LayoutBuilder(
         builder: (context, constraints) {
           final double width = constraints.maxWidth;
+
           final bool isTablet = width >= 760;
+
           final double maxContentWidth = isTablet ? 900 : 620;
+
           final double horizontalPadding = width < 420 ? 16 : 22;
+
           final double cardPadding = width < 420 ? 18 : 24;
+
           final double fieldWidth = isTablet
               ? (maxContentWidth - (horizontalPadding * 2) - 14) / 2
               : double.infinity;
@@ -497,6 +647,7 @@ class _Addstu extends State<Addstu> {
                   ),
                 ),
               ),
+
               SafeArea(
                 child: SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
@@ -517,15 +668,18 @@ class _Addstu extends State<Addstu> {
                                       ? null
                                       : () => Navigator.pop(context),
                                   style: IconButton.styleFrom(
-                                    backgroundColor:
-                                        Colors.white.withOpacity(.18),
+                                    backgroundColor: Colors.white.withOpacity(
+                                      .18,
+                                    ),
                                   ),
                                   icon: const Icon(
                                     Icons.arrow_back_ios_new_rounded,
                                     color: Colors.white,
                                   ),
                                 ),
+
                                 const SizedBox(width: 10),
+
                                 const Expanded(
                                   child: Text(
                                     "Add Student",
@@ -540,7 +694,9 @@ class _Addstu extends State<Addstu> {
                                 ),
                               ],
                             ),
+
                             const SizedBox(height: 22),
+
                             Container(
                               width: double.infinity,
                               padding: EdgeInsets.all(cardPadding),
@@ -558,11 +714,14 @@ class _Addstu extends State<Addstu> {
                               child: Column(
                                 children: [
                                   imagePickerBox(),
+
                                   const SizedBox(height: 24),
+
                                   Wrap(
                                     spacing: 14,
                                     runSpacing: 14,
                                     children: [
+                                      // ROLL
                                       fieldBox(
                                         width: fieldWidth,
                                         child: inputField(
@@ -577,6 +736,8 @@ class _Addstu extends State<Addstu> {
                                           isRequired: true,
                                         ),
                                       ),
+
+                                      // PASSWORD
                                       fieldBox(
                                         width: fieldWidth,
                                         child: inputField(
@@ -596,14 +757,15 @@ class _Addstu extends State<Addstu> {
                                                   },
                                             icon: Icon(
                                               obscurePassword
-                                                  ? Icons
-                                                      .visibility_off_rounded
+                                                  ? Icons.visibility_off_rounded
                                                   : Icons.visibility_rounded,
                                               color: Colors.green.shade700,
                                             ),
                                           ),
                                         ),
                                       ),
+
+                                      // NAME
                                       fieldBox(
                                         width: fieldWidth,
                                         child: inputField(
@@ -613,6 +775,8 @@ class _Addstu extends State<Addstu> {
                                           isRequired: true,
                                         ),
                                       ),
+
+                                      // BRANCH
                                       fieldBox(
                                         width: fieldWidth,
                                         child: DropdownButtonFormField<String>(
@@ -644,6 +808,8 @@ class _Addstu extends State<Addstu> {
                                                 },
                                         ),
                                       ),
+
+                                      // SEMESTER
                                       fieldBox(
                                         width: fieldWidth,
                                         child: inputField(
@@ -658,19 +824,14 @@ class _Addstu extends State<Addstu> {
                                           isRequired: true,
                                         ),
                                       ),
+
+                                      // ADMISSION DATE
                                       fieldBox(
                                         width: fieldWidth,
-                                        child: inputField(
-                                          "Admission Year",
-                                          admissionController,
-                                          Icons.calendar_month_rounded,
-                                          keyboardType: TextInputType.number,
-                                          inputFormatters: [
-                                            FilteringTextInputFormatter
-                                                .digitsOnly,
-                                          ],
-                                        ),
+                                        child: admissionDateField(fieldWidth),
                                       ),
+
+                                      // PARENT NAME
                                       fieldBox(
                                         width: fieldWidth,
                                         child: inputField(
@@ -680,6 +841,8 @@ class _Addstu extends State<Addstu> {
                                           isRequired: true,
                                         ),
                                       ),
+
+                                      // PARENT PHONE
                                       fieldBox(
                                         width: fieldWidth,
                                         child: inputField(
@@ -694,6 +857,8 @@ class _Addstu extends State<Addstu> {
                                           isRequired: true,
                                         ),
                                       ),
+
+                                      // STUDENT PHONE
                                       fieldBox(
                                         width: fieldWidth,
                                         child: inputField(
@@ -707,6 +872,8 @@ class _Addstu extends State<Addstu> {
                                           ],
                                         ),
                                       ),
+
+                                      // EMAIL
                                       fieldBox(
                                         width: fieldWidth,
                                         child: inputField(
@@ -717,6 +884,8 @@ class _Addstu extends State<Addstu> {
                                               TextInputType.emailAddress,
                                         ),
                                       ),
+
+                                      // GENDER
                                       fieldBox(
                                         width: fieldWidth,
                                         child: DropdownButtonFormField<String>(
@@ -748,7 +917,11 @@ class _Addstu extends State<Addstu> {
                                                 },
                                         ),
                                       ),
+
+                                      // DOB
                                       dateField(fieldWidth),
+
+                                      // ADDRESS
                                       fieldBox(
                                         width: double.infinity,
                                         child: inputField(
@@ -759,31 +932,36 @@ class _Addstu extends State<Addstu> {
                                       ),
                                     ],
                                   ),
+
                                   const SizedBox(height: 22),
+
+                                  // SAVE BUTTON
                                   SizedBox(
                                     width: double.infinity,
                                     height: 54,
                                     child: ElevatedButton(
-                                      onPressed:
-                                          isLoading ? null : submitStudent,
+                                      onPressed: isLoading
+                                          ? null
+                                          : submitStudent,
                                       style: ElevatedButton.styleFrom(
                                         elevation: 0,
-                                        backgroundColor:
-                                            const Color(0xff059669),
+                                        backgroundColor: const Color(
+                                          0xff059669,
+                                        ),
                                         disabledBackgroundColor:
                                             Colors.green.shade300,
                                         foregroundColor: Colors.white,
                                         shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(16),
+                                          borderRadius: BorderRadius.circular(
+                                            16,
+                                          ),
                                         ),
                                       ),
                                       child: isLoading
                                           ? const SizedBox(
                                               height: 24,
                                               width: 24,
-                                              child:
-                                                  CircularProgressIndicator(
+                                              child: CircularProgressIndicator(
                                                 strokeWidth: 3,
                                                 color: Colors.white,
                                               ),

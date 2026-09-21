@@ -30,6 +30,7 @@ urlpatterns = [
     path('/api/delete_student/', include('students.urls')),
     path('api/fetch_teachers/', include('teachers.urls')),
    path('api/delete_teacher/', include('teachers.urls')),
+   path('showRecords/',include('attendance.urls')),
 ]
 
 # Media files serve karne ke liye (development only)

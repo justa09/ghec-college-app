@@ -8,7 +8,7 @@ class Student(models.Model):
     full_name = models.CharField(max_length=200)
     branch = models.CharField(max_length=30)
     semester = models.IntegerField()
-    admission_year = models.IntegerField()
+    admission_date = models.DateField()
     parent_name = models.CharField(max_length=200)
     parent_phone = models.CharField(max_length=15)  # slightly increased length
     student_phone = models.CharField(max_length=15)

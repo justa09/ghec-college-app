@@ -23,6 +23,7 @@ class _MarkattendanceState extends State<Markattendance> {
   Map<String, String> attendanceStatus = {};
 
   bool isLoading = false;
+  bool isSubmitting = false;
   int total = 0;
 
   Future<void> fetchSubjects() async {
@@ -65,9 +66,9 @@ class _MarkattendanceState extends State<Markattendance> {
 
   Future<void> submitAttendance() async {
     if (selectedSubject == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Select a subject first")),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text("Select a subject first")));
       return;
     }
 
@@ -77,6 +78,8 @@ class _MarkattendanceState extends State<Markattendance> {
       );
       return;
     }
+
+    setState(() => isSubmitting = true);
 
     final today = DateTime.now().toString().split(" ")[0];
     const int lectureNo = 1;
@@ -95,6 +98,8 @@ class _MarkattendanceState extends State<Markattendance> {
     }).toList();
 
     final bool success = await AttendanceApi().submitAttendance(payload);
+
+    setState(() => isSubmitting = false);
 
     if (success) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -208,7 +213,7 @@ class _MarkattendanceState extends State<Markattendance> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          subtitle: Text("Roll No: $rollNum"),
+                          subtitle: Text("Roll No: $rollNum\n20%  20/100"),
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
@@ -227,9 +232,20 @@ class _MarkattendanceState extends State<Markattendance> {
               const SizedBox(height: 8),
 
               ElevatedButton.icon(
-                onPressed: isLoading ? null : submitAttendance,
-                icon: const Icon(Icons.save),
-                label: const Text("Submit Attendance"),
+                onPressed: isSubmitting ? null : submitAttendance,
+                icon: isSubmitting
+                    ? const SizedBox(
+                        height: 20,
+                        width: 20,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          color: Colors.white,
+                        ),
+                      )
+                    : const Icon(Icons.save),
+                label: Text(
+                  isSubmitting ? "Submitting..." : "Submit Attendance",
+                ),
                 style: ElevatedButton.styleFrom(
                   elevation: 6,
                   backgroundColor: Colors.green.shade700,
@@ -260,13 +276,11 @@ class _MarkattendanceState extends State<Markattendance> {
         elevation: 3,
         backgroundColor: isSelected
             ? value == "P"
-                ? Colors.green
-                : Colors.red
+                  ? Colors.green
+                  : Colors.red
             : Colors.grey.shade200,
         foregroundColor: isSelected ? Colors.white : Colors.black,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       ),
       child: Text(value),
     );
@@ -275,9 +289,7 @@ class _MarkattendanceState extends State<Markattendance> {
   Widget _buildDropdownCard() {
     return Card(
       elevation: 6,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Padding(
         padding: const EdgeInsets.all(14),
         child: Column(
@@ -290,12 +302,7 @@ class _MarkattendanceState extends State<Markattendance> {
                 prefixIcon: Icon(Icons.account_tree),
               ),
               items: branches
-                  .map(
-                    (b) => DropdownMenuItem(
-                      value: b,
-                      child: Text(b),
-                    ),
-                  )
+                  .map((b) => DropdownMenuItem(value: b, child: Text(b)))
                   .toList(),
               onChanged: (val) {
                 setState(() {
@@ -322,12 +329,7 @@ class _MarkattendanceState extends State<Markattendance> {
                 prefixIcon: Icon(Icons.school),
               ),
               items: semesters
-                  .map(
-                    (s) => DropdownMenuItem(
-                      value: s,
-                      child: Text(s),
-                    ),
-                  )
+                  .map((s) => DropdownMenuItem(value: s, child: Text(s)))
                   .toList(),
               onChanged: (val) {
                 setState(() {

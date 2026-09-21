@@ -14,7 +14,7 @@ class RegisterPage extends StatefulWidget {
 }
 
 final TeacherApi apiService = TeacherApi(
-  baseURL: "http://192.168.43.148:8000/api",
+  baseURL: "http://192.168.43.46:8000/api",
 );
 
 class _RegisterPage extends State<RegisterPage> {
@@ -34,12 +34,7 @@ class _RegisterPage extends State<RegisterPage> {
 
   bool isLoading = false;
 
-  final List<String> role = [
-    "Principal",
-    "HOD",
-    "Lect",
-    "Management",
-  ];
+  final List<String> role = ["Principal", "HOD", "Lect", "Management"];
 
   @override
   void dispose() {
@@ -81,10 +76,7 @@ class _RegisterPage extends State<RegisterPage> {
   }
 
   Future<void> pickImage(ImageSource source) async {
-    final picked = await picker.pickImage(
-      source: source,
-      imageQuality: 70,
-    );
+    final picked = await picker.pickImage(source: source, imageQuality: 70);
 
     if (picked != null) {
       setState(() {
@@ -101,9 +93,7 @@ class _RegisterPage extends State<RegisterPage> {
         return Container(
           decoration: const BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.vertical(
-              top: Radius.circular(26),
-            ),
+            borderRadius: BorderRadius.vertical(top: Radius.circular(26)),
           ),
           child: SafeArea(
             top: false,
@@ -157,10 +147,7 @@ class _RegisterPage extends State<RegisterPage> {
                         color: Colors.green.shade50,
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: Icon(
-                        Icons.photo,
-                        color: Colors.green.shade700,
-                      ),
+                      child: Icon(Icons.photo, color: Colors.green.shade700),
                     ),
                     title: const Text(
                       "Gallery",
@@ -183,10 +170,7 @@ class _RegisterPage extends State<RegisterPage> {
                           color: Colors.red.shade50,
                           borderRadius: BorderRadius.circular(12),
                         ),
-                        child: Icon(
-                          Icons.delete,
-                          color: Colors.red.shade600,
-                        ),
+                        child: Icon(Icons.delete, color: Colors.red.shade600),
                       ),
                       title: const Text(
                         "Remove Image",
@@ -214,9 +198,7 @@ class _RegisterPage extends State<RegisterPage> {
         content: Text(message),
         behavior: SnackBarBehavior.floating,
         backgroundColor: const Color(0xff111827),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(14),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
       ),
     );
   }
@@ -252,7 +234,7 @@ class _RegisterPage extends State<RegisterPage> {
       department: deptController.text.trim(),
       joiningDate: joining,
       imageFile: imageFile,
-      role : designation!,
+      role: designation!,
     );
 
     if (!mounted) return;
@@ -431,10 +413,12 @@ class _RegisterPage extends State<RegisterPage> {
                             child: DropdownButtonFormField<String>(
                               initialValue: designation,
                               items: role
-                                  .map((e) => DropdownMenuItem(
-                                        value: e,
-                                        child: Text(e),
-                                      ))
+                                  .map(
+                                    (e) => DropdownMenuItem(
+                                      value: e,
+                                      child: Text(e),
+                                    ),
+                                  )
                                   .toList(),
                               onChanged: (value) {
                                 setState(() {
@@ -590,9 +574,7 @@ class _RegisterPage extends State<RegisterPage> {
                             ),
                             child: const Text(
                               "Login",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w800,
-                              ),
+                              style: TextStyle(fontWeight: FontWeight.w800),
                             ),
                           ),
                         ],
@@ -632,27 +614,16 @@ class _RegisterPage extends State<RegisterPage> {
             color: Colors.grey.shade700,
             fontWeight: FontWeight.w500,
           ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
-            borderSide: BorderSide(
-              color: Colors.grey.shade200,
-              width: 1.2,
-            ),
+            borderSide: BorderSide(color: Colors.grey.shade200, width: 1.2),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
-            borderSide: BorderSide(
-              color: Colors.green.shade600,
-              width: 1.8,
-            ),
+            borderSide: BorderSide(color: Colors.green.shade600, width: 1.8),
           ),
-          prefixIcon: Icon(
-            icon,
-            color: Colors.green.shade700,
-          ),
+          prefixIcon: Icon(icon, color: Colors.green.shade700),
         ),
       ),
     );
