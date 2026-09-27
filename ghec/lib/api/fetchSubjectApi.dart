@@ -2,7 +2,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class FetchSubjectApi {
-  final String baseUrl = "http://192.168.43.46:8000/";
+  // final String baseUrl = "http://192.168.43.46:8000/";
+  final String baseUrl = "https://ghec-college-app.onrender.com";
 
   /// Fetch subjects for branch + semester
   /// Returns List<Map<String,dynamic>> with subject_id and name

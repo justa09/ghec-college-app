@@ -42,7 +42,8 @@ class _Addstu extends State<Addstu> {
   final List<String> genders = ["Male", "Female", "Other"];
 
   final StudentApi apiService = StudentApi(
-    baseUrl: "http://192.168.43.46:8000/api",
+    // baseUrl: "http://192.168.43.46:8000/api",
+    baseUrl: "https://ghec-college-app.onrender.com/api",
   );
 
   @override

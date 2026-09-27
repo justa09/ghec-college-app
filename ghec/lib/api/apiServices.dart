@@ -4,7 +4,8 @@ import 'package:http/http.dart' as http;
 
 class ApiService {
   /// Emulator → http://30.0.2.2:8000
-  static const String baseUrl = "http://192.168.43.46:8000";
+  // static const String baseUrl = "http://192.168.43.46:8000";
+  static const String baseUrl = "https://ghec-college-app.onrender.com";
 
   static const Map<String, String> headers = {
     "Content-Type": "application/json",

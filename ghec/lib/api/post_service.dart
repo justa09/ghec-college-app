@@ -4,8 +4,9 @@ import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 
 class PostService {
-  static const String baseUrl = "http://192.168.43.46:8000/api/posts/";
-
+  // static const String baseUrl = "http://192.168.43.46:8000/api/posts/";
+  static const String baseUrl =
+      "https://ghec-college-app.onrender.com/api/posts/";
   static Future<List<dynamic>> fetchPosts() async {
     final response = await http.get(Uri.parse("${baseUrl}get-posts/"));
 

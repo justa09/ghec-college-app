@@ -10,7 +10,8 @@ class ViewFaculty extends StatefulWidget {
 
 class _ViewFacultyState extends State<ViewFaculty> {
   final TeacherApi teacherApi = TeacherApi(
-    baseURL: "http://192.168.43.46:8000/api",
+    // baseURL: "http://192.168.43.46:8000/api",
+    baseURL: "https://ghec-college-app.onrender.com/api",
   );
 
   List<Map<String, String>> teachers = [];

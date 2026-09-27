@@ -3,7 +3,8 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart';
 
 class FetchStudentApi {
-  final String baseUrl = "http://192.168.43.46:8000/"; // backend URL
+  // final String baseUrl = "http://192.168.43.46:8000/"; // backend URL
+  final String baseUrl = "https://ghec-college-app.onrender.com";
 
   // Function to fetch students for multiple branches & semesters
   Future<Map<String, dynamic>> fetchStudents({
