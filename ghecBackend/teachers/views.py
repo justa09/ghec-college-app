@@ -5,22 +5,26 @@ from django.db import transaction
 from .models import Teacher
 
 @csrf_exempt
+@csrf_exempt
 def addTeacherApi(request):
+
     if request.method != "POST":
-        return JsonResponse({
-            "status": "error",
-            "message": "Only POST requests are allowed"
-        }, status=405)
+        return JsonResponse(
+            {"status": "error", "message": "Only POST method allowed"},
+            status=405
+        )
 
     try:
+        # ---------------- AUTH ----------------
         auth_header = request.headers.get("Authorization")
 
         if auth_header != "Bearer ghec_secret_123":
-            return JsonResponse({
-                "status": "error",
-                "message": "Unauthorized request"
-            }, status=401)
+            return JsonResponse(
+                {"status": "error", "message": "Unauthorized"},
+                status=401
+            )
 
+        # ---------------- FORM DATA ----------------
         data = request.POST
         image_file = request.FILES.get("image")
 
@@ -37,11 +41,15 @@ def addTeacherApi(request):
 
         for field in required_fields:
             if not data.get(field):
-                return JsonResponse({
-                    "status": "error",
-                    "message": f"{field} is required"
-                }, status=400)
+                return JsonResponse(
+                    {
+                        "status": "error",
+                        "message": f"{field} is required"
+                    },
+                    status=400
+                )
 
+        # ---------------- GET VALUES ----------------
         tid = data.get("Tid").strip()
         password = data.get("password").strip()
         full_name = data.get("FullName").strip()
@@ -51,23 +59,21 @@ def addTeacherApi(request):
         dept = data.get("dept").strip()
         role = data.get("role").strip()
 
+        # ---------------- USER ----------------
         User = get_user_model()
 
-        # valid_roles = [choice[0] for choice in User.ROLE_CHOICES]
-
-        # if role not in valid_roles:
-        #     return JsonResponse({
-        #         "status": "error",
-        #         "message": "Invalid role"
-        #     }, status=400)
-
         if User.objects.filter(username=tid).exists():
-            return JsonResponse({
-                "status": "error",
-                "message": "Teacher already exists with this Tid"
-            }, status=400)
+            return JsonResponse(
+                {
+                    "status": "error",
+                    "message": "Teacher ID already exists"
+                },
+                status=400
+            )
 
+        # ---------------- CREATE USER + TEACHER ----------------
         with transaction.atomic():
+
             user = User.objects.create_user(
                 username=tid,
                 password=password
@@ -77,43 +83,42 @@ def addTeacherApi(request):
             user.role = role
             user.save()
 
-        try:
             teacher = Teacher.objects.create(
-            user=user,
-            tId=tid,
-            full_name=full_name,
-            t_phone=phone,
-            address=address,
-            joining_date=joining_date,
-            dept=dept,
-            image=image_file)
-            print(teacher)
-        except Exception as e:
-            print(e)
-        
+                user=user,
+                tId=tid,
+                full_name=full_name,
+                t_phone=phone,
+                address=address,
+                joining_date=joining_date,
+                dept=dept,
+                image=image_file
+            )
 
-        return JsonResponse({
-            "status": "success",
-            "message": "Teacher added successfully",
-            "data": {
-                "Tid": tid,
-                "FullName": full_name,
-                "Tphone": phone,
-                "address": address,
-                "joiningDate": joining_date,
-                "dept": dept,
-                "role": user.role,
-                "imageUploaded": image_file is not None
-            }
-        }, status=201)
+        # ---------------- SUCCESS ----------------
+        return JsonResponse(
+            {
+                "status": "success",
+                "message": "Teacher added successfully",
+                "teacher_id": teacher.tId
+            },
+            status=201
+        )
 
     except Exception as e:
-        return JsonResponse({
-            "status": "error",
-            "message": str(e)
-        }, status=500)
-    
 
+        print("ADD TEACHER ERROR:", str(e))
+
+        return JsonResponse(
+            {
+                "status": "error",
+                "message": str(e)
+            },
+            status=500
+        )
+
+
+
+    
 def fetchTeacherApi(request):
     if request.method != "GET":
         return JsonResponse({
