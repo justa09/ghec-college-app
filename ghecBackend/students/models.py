@@ -36,7 +36,6 @@ class Subject(models.Model):
 
 
 
-
 class ProfileUpdateRequest(models.Model):
     STATUS_CHOICES = (
         ('pending', 'Pending'),
