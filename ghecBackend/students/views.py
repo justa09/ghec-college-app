@@ -113,7 +113,7 @@ def add_student(request):
                 full_name=data["name"],
                 branch=data["branch"],
                 semester=int(data.get("semester") or 0),
-                admission_year=data.get("admission_date") or 0,
+                admission_date=data.get("admission_date") or 0,
                 parent_name=data.get("parent_name", ""),
                 parent_phone=data.get("parent_phone", ""),
                 student_phone=data.get("student_phone", ""),
