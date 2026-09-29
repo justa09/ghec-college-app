@@ -140,6 +140,7 @@ def fetchTeacherApi(request):
                 "imageURL": request.build_absolute_uri(teacher.image.url)
                     if teacher.image else None
             })
+                
 
     except Exception as e:
         return JsonResponse({
