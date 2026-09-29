@@ -125,29 +125,35 @@ def fetchTeacherApi(request):
             "message": "Only GET requests are allowed"
         }, status=405)
 
-    try:
-        teachers = Teacher.objects.all()
-        teacher_list = []
-        for teacher in teachers:
-                teacher_list.append({
-                "Tid": teacher.tId,
-                "FullName": teacher.full_name,
-                "Tphone": teacher.t_phone,
-                "address": teacher.address,
-                "joiningDate": teacher.joining_date,
-                "dept": teacher.dept,
-                "role": teacher.user.role,
-                "imageURL": request.build_absolute_uri(teacher.image.url)
-                    if teacher.image else None
-            })
-                
+   try:
+    teachers = Teacher.objects.all()
+    teacher_list = []
 
-    except Exception as e:
-        return JsonResponse({
-            "status": "error",
-            "message": str(e)
-        }, status=500)
-    
+    print("TEACHER COUNT =", teachers.count())
+
+    for teacher in teachers:
+        teacher_list.append({
+            "Tid": teacher.tId,
+            "FullName": teacher.full_name,
+            "Tphone": teacher.t_phone,
+            "address": teacher.address,
+            "joiningDate": teacher.joining_date,
+            "dept": teacher.dept,
+            "role": teacher.user.role,
+            "imageURL": request.build_absolute_uri(teacher.image.url)
+                if teacher.image else None
+        })
+
+    return JsonResponse({
+        "status": "success",
+        "teachers": teacher_list
+    })
+
+except Exception as e:
+    return JsonResponse({
+        "status": "error",
+        "message": str(e)
+    }, status=500)
 
 
 @csrf_exempt
