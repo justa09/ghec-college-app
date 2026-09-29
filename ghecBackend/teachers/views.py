@@ -130,10 +130,7 @@ def fetchTeacherApi(request):
         teacher_list = []
 
         for teacher in teachers:
-            if teacher.tId == 101:
-                continue
-
-            teacher_list.append({
+                teacher_list.append({
                 "Tid": teacher.tId,
                 "FullName": teacher.full_name,
                 "Tphone": teacher.t_phone,
