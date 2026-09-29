@@ -128,7 +128,6 @@ def fetchTeacherApi(request):
     try:
         teachers = Teacher.objects.all()
         teacher_list = []
-
         for teacher in teachers:
                 teacher_list.append({
                 "Tid": teacher.tId,
