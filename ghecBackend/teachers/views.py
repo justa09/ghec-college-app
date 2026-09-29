@@ -5,7 +5,6 @@ from django.db import transaction
 from .models import Teacher
 
 @csrf_exempt
-@csrf_exempt
 def addTeacherApi(request):
 
     if request.method != "POST":
@@ -131,6 +130,9 @@ def fetchTeacherApi(request):
         teacher_list = []
 
         for teacher in teachers:
+            if teacher.tId == 101:
+                continue
+
             teacher_list.append({
                 "Tid": teacher.tId,
                 "FullName": teacher.full_name,
@@ -139,15 +141,9 @@ def fetchTeacherApi(request):
                 "joiningDate": teacher.joining_date,
                 "dept": teacher.dept,
                 "role": teacher.user.role,
-                "imageURL": request.build_absolute_uri(teacher.image.url) if teacher.image else None
+                "imageURL": request.build_absolute_uri(teacher.image.url)
+                    if teacher.image else None
             })
-            
-
-        return JsonResponse({
-            "status": "success",
-            "message": "Teachers fetched successfully",
-            "data": teacher_list
-        }, status=200)
 
     except Exception as e:
         return JsonResponse({
