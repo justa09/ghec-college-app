@@ -1,12 +1,16 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.contrib.auth import authenticate
-
+from django.views.decorators.csrf import ensure_csrf_cookie
+from django.http import JsonResponse
 from students.models import Student
 from teachers.models import Teacher
+from django.views.decorators.csrf import csrf_protect
 
 
+# ================= 🔐 LOGIN =================
 @api_view(['POST'])
+@csrf_protect
 def login_api(request):
     username = request.data.get('username', '').strip()
     password = request.data.get('password', '')
@@ -28,7 +32,12 @@ def login_api(request):
     if user.role == "student":
         try:
             stu = Student.objects.get(user=user)
-            image_url = request.build_absolute_uri(stu.image.url) if stu.image else ""
+
+            image_url = (
+                request.build_absolute_uri(stu.image.url)
+                if stu.image
+                else ""
+            )
 
             return Response({
                 "status": "success",
@@ -44,10 +53,21 @@ def login_api(request):
                 "message": "Student profile not found"
             }, status=404)
 
-    if user.role == "teacher" or user.role == "HOD" or user.role == "Principal" or user.role == "Lect" or user.role ==  "Management":
+    if (
+        user.role == "teacher"
+        or user.role == "HOD"
+        or user.role == "Principal"
+        or user.role == "Lect"
+        or user.role == "Management"
+    ):
         try:
             teacher = Teacher.objects.get(user=user)
-            image_url = request.build_absolute_uri(teacher.image.url) if teacher.image else ""
+
+            image_url = (
+                request.build_absolute_uri(teacher.image.url)
+                if teacher.image
+                else ""
+            )
 
             return Response({
                 "status": "success",
@@ -62,9 +82,22 @@ def login_api(request):
                 "status": "error",
                 "message": "Teacher profile not found"
             }, status=404)
-    
 
     return Response({
         "status": "error",
         "message": f"Invalid role: {user.role}"
     }, status=400)
+
+
+# ================= 🍪 CSRF TOKEN =================
+@ensure_csrf_cookie
+def csrf_token(request):
+    from django.middleware.csrf import get_token
+
+    token = get_token(request)
+
+    return JsonResponse({
+        "message": "CSRF cookie set",
+        "csrfToken": token,
+        "cookie": request.COOKIES.get("csrftoken")
+    })

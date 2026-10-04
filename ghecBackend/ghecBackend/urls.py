@@ -3,7 +3,8 @@ from django.urls import path, include
 from students.views import fetch_students_api
 from django.conf import settings
 from django.conf.urls.static import static
-from attendance.views import submit_attendance, showAttendance, send_sms
+from attendance.views import send_sms
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -22,17 +23,25 @@ urlpatterns = [
     # Attendance
     path('api/', include('attendance.urls')),
 
-    # Posts (✅ only ONE clean route)
+    # Posts
     path('api/posts/', include('posts.urls')),
 
     # SMS
     path('send/', send_sms),
-    path('/api/delete_student/', include('students.urls')),
+
+    # Student / Teacher APIs
+    path('api/delete_student/', include('students.urls')),
     path('api/fetch_teachers/', include('teachers.urls')),
-   path('api/delete_teacher/', include('teachers.urls')),
-   path('showRecords/',include('attendance.urls')),
+    path('api/delete_teacher/', include('teachers.urls')),
+
+    # Attendance records
+    path('showRecords/', include('attendance.urls')),
 ]
+
 
 # Media files serve karne ke liye (development only)
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(
+        settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT
+    )

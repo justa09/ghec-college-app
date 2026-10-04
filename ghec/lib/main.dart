@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'screens/splash.dart';
+import 'api/csrfApi.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Hive.initFlutter(); // 🔥 Hive init
-  await Hive.openBox('todoBox'); // 
+  await Hive.initFlutter();
+  await Hive.openBox('todoBox');
 
+  await CsrfApi.fetchCsrfToken();
   runApp(const MyApp());
 }
 
