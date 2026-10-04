@@ -4,9 +4,17 @@ from students.views import fetch_students_api
 from django.conf import settings
 from django.conf.urls.static import static
 from attendance.views import send_sms
+from django.views.generic import TemplateView
 
 
 urlpatterns = [
+    path(
+        'google58f17756131275a9.html',
+        TemplateView.as_view(
+            template_name='google58f17756131275a9.html'
+        ),
+    ),
+    
     path('admin/', admin.site.urls),
 
     # Auth
@@ -36,6 +44,7 @@ urlpatterns = [
 
     # Attendance records
     path('showRecords/', include('attendance.urls')),
+    
 ]
 
 
