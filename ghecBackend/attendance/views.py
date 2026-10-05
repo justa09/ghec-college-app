@@ -135,30 +135,6 @@ def showAttendance(request):
 
 
 
-# def send_sms(request):
-#     url = "https://api.msg91.com/api/v5/flow/"
-
-#     payload = {
-#         "flow_id": "69bfe480f414a57d1b0d06e2",   # template ka flow id
-#         "mobiles": "918219858452",  # parent ka number
-
-#         "name": "Vikas Justa",            # ##name## variable
-#         "subject": "DBMS"           # ##subject## variable
-#     }
-
-#     headers = {
-#         "authkey": "502428ADfW8W1TCq69bfe6b6P1",
-#         "Content-Type": "application/json"
-#     }
-
-#     response = requests.post(url, json=payload, headers=headers)
-
-#     return HttpResponse(response.text)
-
-
-
-
-
 
 # def send_sms(request):
 def send_sms(num, name, sub):
@@ -181,7 +157,7 @@ def send_sms(num, name, sub):
         "Content-Type": "application/json"
     }
 
-    print("Function Called Successfully")
+   
 
     try:
         response = requests.post(
