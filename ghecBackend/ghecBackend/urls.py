@@ -14,7 +14,7 @@ urlpatterns = [
             template_name='google58f17756131275a9.html'
         ),
     ),
-    
+
     path('admin/', admin.site.urls),
 
     # Auth
@@ -44,13 +44,11 @@ urlpatterns = [
 
     # Attendance records
     path('showRecords/', include('attendance.urls')),
-    
 ]
 
 
-# Media files serve karne ke liye (development only)
-if settings.DEBUG:
-    urlpatterns += static(
-        settings.MEDIA_URL,
-        document_root=settings.MEDIA_ROOT
-    )
+# Media files serve karne ke liye
+urlpatterns += static(
+    settings.MEDIA_URL,
+    document_root=settings.MEDIA_ROOT
+)
