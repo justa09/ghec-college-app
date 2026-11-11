@@ -9,4 +9,5 @@ urlpatterns = [
     path('attendance/show/', showAttendance, name='show_attendance'),
     path('send/', showAttendance, name='send_sms'),
     path('showRecords/',showRecords),
+    path('studentStatus/',studentStatus),
 ]

@@ -5,7 +5,8 @@ from .models import Attendance
 from students.models import Student, Subject
 import requests
 from django.http import HttpResponse
-
+import traceback
+from django.db.models import Count, Q
 
 @csrf_exempt
 def submit_attendance(request):
@@ -293,3 +294,73 @@ def showRecords(request):
             },
             status=500
         )
+
+
+@csrf_exempt
+def studentStatus(request):
+    print("STUDENT STATUS API CALLED")
+
+    if request.method != "POST":
+        return JsonResponse(
+            {"error": "Only POST accepted"},
+            status=405
+        )
+
+    try:
+        data = json.loads(request.body)
+
+        branch = data.get("branch")
+        semester = data.get("semester")
+        subject = data.get("subject", "All")
+
+        attendance = Attendance.objects.filter(
+            student__branch=branch,
+            student__semester=semester
+        )
+
+        if subject != "All":
+            attendance = attendance.filter(
+                subject__sub_name=subject
+            )
+
+        student_attendance = (
+            attendance
+            .values(
+                "student__roll_num",
+                "student__full_name"
+            )
+            .annotate(
+                total_present=Count(
+                    "id",
+                    filter=Q(status="P")
+                ),
+                total_absent=Count(
+                    "id",
+                    filter=Q(status="A")
+                ),
+                total_lectures=Count("id")
+            )
+        )
+
+        result = []
+
+        for student in student_attendance:
+            result.append({
+                "roll_no": student["student__roll_num"],
+                "name": student["student__full_name"],
+                "present": student["total_present"],
+                "absent": student["total_absent"],
+                "total": student["total_lectures"]
+            })
+
+        return JsonResponse({
+            "message": "Success",
+            "students": result
+        }, status=200)
+
+    except Exception as e:
+        print("STUDENT STATUS ERROR:", str(e))
+
+        return JsonResponse({
+            "error": str(e)
+        }, status=400)
