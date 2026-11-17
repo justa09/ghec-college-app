@@ -1,13 +1,20 @@
+
 import json
 import base64
 
+from datetime import date, datetime
+from dateutil.relativedelta import relativedelta
+
+from django.db.models import F
+from django.db import transaction
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.core.files.base import ContentFile
 from django.contrib.auth import get_user_model
-from django.db import transaction
+from django.utils import timezone
 
-from .models import Student, Subject
+from .models import *
+
 
 API_TOKEN = "ghec_secret_123"
 
@@ -89,6 +96,7 @@ def add_student(request):
                     }, status=400)
 
                 ext = format.split("/")[-1]
+
                 student_image = ContentFile(
                     base64.b64decode(imgstr),
                     name=f"{roll}.{ext}"
@@ -142,23 +150,22 @@ def add_student(request):
 def fetch_students_api(request):
     branches = request.GET.get("branches", "").strip()
     semesters = request.GET.get("semesters", "").strip()
+
     print(f"Received branches: {branches}, semesters: {semesters}")
 
     branches_list = []
     semesters_list = []
 
-    # handle branches
     if branches and branches.lower() != "all":
-        branches_list = [b.strip() for b in branches.split(",") if b.strip()]
+        branches_list = [
+            b.strip() for b in branches.split(",") if b.strip()
+        ]
 
-    # handle semesters safely
     if semesters and semesters.lower() != "all":
-        try:
-            semesters_list = [
-                int(s) for s in semesters.split(",") if s.strip().isdigit()
-            ]
-        except:
-            semesters_list = []
+        semesters_list = [
+            int(s) for s in semesters.split(",")
+            if s.strip().isdigit()
+        ]
 
     students = Student.objects.all()
 
@@ -178,9 +185,11 @@ def fetch_students_api(request):
         }
         for s in students
     ]
+
     print(len(data))
 
     return JsonResponse(data, safe=False)
+
 
 def get_subjects(request):
     branch = request.GET.get("branch")
@@ -200,11 +209,10 @@ def get_subjects(request):
     return JsonResponse(list(subjects), safe=False)
 
 
-
 @csrf_exempt
 def delete_student(request):
-    roll_num= request.GET.get("roll_num")
-    
+    roll_num = request.GET.get("roll_num")
+
     if request.method != "DELETE":
         return JsonResponse({
             "status": "error",
@@ -214,6 +222,7 @@ def delete_student(request):
     try:
         student = Student.objects.get(roll_num=roll_num)
         user = student.user
+
         student.delete()
         user.delete()
 
@@ -231,5 +240,80 @@ def delete_student(request):
     except Exception as e:
         return JsonResponse({
             "status": "error",
+            "message": str(e)
+        }, status=400)
+
+
+
+@csrf_exempt
+def updateSem(request):
+
+    if request.method != "POST":
+        return JsonResponse({
+            "status": False,
+            "message": "Only POST request is accepted"
+        }, status=405)
+
+    try:
+        obj = lastUpdatedSem.objects.first()
+
+        if obj is None or obj.lastUpdated is None:
+            return JsonResponse({
+                "status": False,
+                "message": "Last update date not found"
+            }, status=400)
+
+        # Database datetime ko date mein convert karna
+        lastUpdate = obj.lastUpdated.date() if hasattr(
+            obj.lastUpdated, "date"
+        ) else obj.lastUpdated
+
+        current = timezone.localdate()
+
+        # Difference calculate
+        difference = current - lastUpdate
+
+        # Check whether 4 months are completed
+        nextUpdateDate = lastUpdate + relativedelta(months=4)
+
+        if current < nextUpdateDate:
+            return JsonResponse({
+                "status": False,
+                "message": f"Semester can only be updated after 4 months \nlast_updated: {lastUpdate.strftime("%d-%m-%Y")},\ndays_remaining :{ (nextUpdateDate - current).days}",
+               
+               
+            })
+
+        # Update all students whose semester is less than 8
+        with transaction.atomic():
+
+            updated_count = Student.objects.filter(
+                semester__lt=8
+            ).update(
+                semester=F("semester") + 1
+            )
+
+            # Update lastUpdated date
+            obj.lastUpdated = current
+            obj.save(update_fields=["lastUpdated"])
+
+        print("UPDATED STUDENTS:", updated_count)
+
+        print("AFTER:", list(
+            Student.objects.values("roll_num", "semester")
+        ))
+
+        return JsonResponse({
+            "status": True,
+            "message": "Semester Updated Successfully",
+            "updated_students": updated_count,
+            "last_updated": current.strftime("%d-%m-%Y")
+        })
+
+    except Exception as e:
+        print("UPDATE SEM ERROR:", str(e))
+
+        return JsonResponse({
+            "status": False,
             "message": str(e)
         }, status=400)

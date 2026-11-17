@@ -54,3 +54,6 @@ class ProfileUpdateRequestAdmin(admin.ModelAdmin):
     # def get_queryset(self, request):
     #     qs = super().get_queryset(request)
     #     return qs.filter(status="pending")
+@admin.register(lastUpdatedSem)
+class lastUpdated(admin.ModelAdmin):
+    list_display=("lastUpdated",)

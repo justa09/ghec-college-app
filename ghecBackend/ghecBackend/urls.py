@@ -19,6 +19,7 @@ urlpatterns = [
 
     # Auth
     path('api/auth/', include('auth_app.urls')),
+    path('api/', include('auth_app.urls')),
 
     # Students
     path('api/fetch_students/', fetch_students_api),

@@ -5,8 +5,9 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.http import JsonResponse
 from students.models import Student
 from teachers.models import Teacher
-from django.views.decorators.csrf import csrf_protect
-
+from django.views.decorators.csrf import csrf_protect,csrf_exempt
+from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 
 # ================= 🔐 LOGIN =================cd cd
 @api_view(['POST'])
@@ -101,3 +102,37 @@ def csrf_token(request):
         "csrfToken": token,
         "cookie": request.COOKIES.get("csrftoken")
     })
+
+
+
+@csrf_exempt
+def resetPassword(request):
+    if request.method!="POST":
+        return JsonResponse({
+            "status":False,
+            "message":"Only Post Requests Are Accepted"
+        })
+    else:
+        userId = request.POST.get("id")
+
+        User = get_user_model()
+
+        print("RECEIVED ID:", userId)
+
+        user = User.objects.get(username=userId)
+        role= user.role
+        if role =='student':
+            pNum = Student.objects.get(roll_num = userId).parent_phone
+            print("OTP sent to ", pNum)
+
+
+        else:
+            userNum = Teacher.objects.get(tId = userId).t_phone
+            print("OTP sent to ",userNum)
+
+       
+      
+    return JsonResponse({
+            "status":True,
+            "message":"OTP Sent to Phone"
+        })

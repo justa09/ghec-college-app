@@ -1,7 +1,6 @@
 from django.db import models
 from django.utils import timezone
 from django.conf import settings
-
 class Student(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     roll_num = models.CharField(max_length=20, primary_key=True)
@@ -71,3 +70,9 @@ class ProfileUpdateRequest(models.Model):
 
     def __str__(self):
         return f"{self.student} - {self.field_name} ({self.status})"
+
+
+class lastUpdatedSem(models.Model):
+    lastUpdated = models.DateTimeField(blank=True,null=True)
+def __str__(self):
+    return self.lastUpdated

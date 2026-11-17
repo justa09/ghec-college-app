@@ -1,5 +1,5 @@
 from django.urls import path,include
-from .views import get_subjects, fetch_students_api
+from .views import *
 from django.conf import settings
 from django.conf.urls.static import static
 from students import views
@@ -15,6 +15,7 @@ urlpatterns = [
     path('request/<int:request_id>/', handle_request),
     path('api/fetch_students/', fetch_students_api, name='fetch_students_api'),
     path('delete_student/', views.delete_student, name='delete_student'),
+    path('updateSem',updateSem),
 ]
 
 
