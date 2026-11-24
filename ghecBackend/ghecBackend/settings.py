@@ -24,18 +24,18 @@ MSG91_WIDGET_ID = os.getenv("MSG91_WIDGET_ID")
 
 
 #Merko ye line production se pehle comment se hatani hai or niche wali comment krni hai
-# SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
-SECRET_KEY = os.environ.get(
-    "SECRET_KEY",
-    "django-insecure-local-development-key-change-this"
-)
+# SECRET_KEY = os.environ.get(
+#     "SECRET_KEY",
+#     "django-insecure-local-development-key-change-this"
+# )
 
 
 #Merko ye line production se pehle comment se hatani hai or niche wali comment krni hai
 
-# DEBUG = os.environ.get("DEBUG", "False") == "True"
-DEBUG = "True"
+DEBUG = os.environ.get("DEBUG", "False") == "True"
+# DEBUG = "True"
 
 ALLOWED_HOSTS = [
     "192.168.43.46",
