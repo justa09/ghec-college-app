@@ -7,6 +7,7 @@ import requests
 from django.http import HttpResponse
 import traceback
 from django.db.models import Count, Q
+from django.conf import settings
 
 @csrf_exempt
 def submit_attendance(request):
@@ -154,7 +155,7 @@ def send_sms(num, name, sub):
     }
 
     headers = {
-        "authkey": "502428ADfW8W1TCq69bfe6b6P1",
+        "authkey": settings.MSG91_AUTH_KEY,
         "Content-Type": "application/json"
     }
 

@@ -6,5 +6,6 @@ urlpatterns = [
 
     path("login/", login_api, name="login"),
     path("csrf/", csrf_token, name="csrf"),
-    path("resetPassword/",resetPassword)
+    path("resetPassword/",resetPassword),
+    path("updateNewPassword/",updateNewPassword)
 ]
