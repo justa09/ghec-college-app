@@ -167,7 +167,7 @@ def fetch_students_api(request):
             if s.strip().isdigit()
         ]
 
-    students = Student.objects.all()
+    students = Student.objects.all().order_by('roll_num')
 
     if branches_list:
         students = students.filter(branch__in=branches_list)
