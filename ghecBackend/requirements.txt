@@ -22,6 +22,7 @@ pillow==12.1.1
 plot==0.6.5
 psycopg==3.3.5
 psycopg-binary==3.3.5
+psycopg2-binary==2.9.13
 pyparsing==3.3.2
 python-dateutil==2.9.0.post0
 python-dotenv==1.2.4
