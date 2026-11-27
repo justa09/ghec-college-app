@@ -15,7 +15,7 @@ def create_post(request):
         description = request.POST.get("description")
         images = request.FILES.getlist("images")
 
-        if not teacher_id or not description:
+        if not teacher_id or (not description and not images):
             return JsonResponse({"error": "Missing fields"}, status=400)
 
         try:
