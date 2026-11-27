@@ -1,0 +1,230 @@
+[
+  {
+    "model": "auth_app.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$1npXsAfVVZz0cQkRAtkh63$7NM8vgdI1CqDP1LgN4cPH8CSC6JxDV+E2LPmsFLXCyE=",
+      "last_login": "2026-11-15T04:58:38.950Z",
+      "is_superuser": true,
+      "username": "vikasjusta",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2026-04-24T05:21:06.954Z",
+      "role": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth_app.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$62pggLrlFMMfJXMdF81DV0$XvHfRDnyNxkZma/kSAkWeL4+i6ftN4mjUc0Cp1a1E08=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "101",
+      "first_name": "Vikas",
+      "last_name": "Justa",
+      "email": "vikasjusta3@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-04-24T05:52:20Z",
+      "role": "teacher",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth_app.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$DedJ595czq60D7POAaviF9$H5IkCzLgMK8Ak4270lRkUIenM7He8Kt2jWjGWnxo4F4=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "82",
+      "first_name": "Vikas",
+      "last_name": "Justa",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-04-24T06:24:31Z",
+      "role": "student",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth_app.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$YmyWuiaEHXixs69pSwC5eu$ajfxGoGgBw6LjwgRS0/hKWc1M9x4+6rDvHDPcZh48rc=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "GHEC",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-04-24T06:47:11.611Z",
+      "role": "teacher",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth_app.user",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$T0x7c7WPLejMd7QOAhX1fy$D5jzndkZRtbCRjuDMojr3oGD40Sj4mSMinVBXnkEWRA=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "73",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-04-28T11:41:50.630Z",
+      "role": "student",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth_app.user",
+    "pk": 8,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$0vR0QHrldbmwtOOfhgHjMP$tMDtvHJyi1M31TqaGkfMW7S9SfCZqoOygm/lAlwemqQ=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "80",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-04-30T01:48:24.749Z",
+      "role": "student",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth_app.user",
+    "pk": 10,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$TaZXU87TtnLLEw3hvdik4f$R0ctuPpzeDnH9ZcLjxpv2+KnEUpzHYkBgTSGg9Pj9hM=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "79",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-04-30T01:51:06.248Z",
+      "role": "student",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth_app.user",
+    "pk": 34,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$zWkURCS3nv22NKBWOCRFfX$s6LtBDZ3J/pgxUKuD2bfi7BnkoDSfoJwPlajxrGj1N4=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "HOD",
+      "first_name": "HOD",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-05-02T15:47:27Z",
+      "role": "HOD",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth_app.user",
+    "pk": 36,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$gOaPAvj0TMwEOmIyvlIM9M$Mqpq+OOjzschPezmYlF/FC1YvlyxRj42BjawWRzbI9Q=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "principal",
+      "first_name": "Principal",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-05-03T04:25:45.071Z",
+      "role": "Principal",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth_app.user",
+    "pk": 42,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$8JXsaHJzCfoMAPGi7viBTG$8e2rkhjqnahtfUEwrib/998cfau7KeQ27m+ZW3H8Ofw=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "30",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-05-06T11:50:58.449Z",
+      "role": "student",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth_app.user",
+    "pk": 43,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$kLyPIX6LeC2D2yDm6tD2nW$GCeYtloYIpD3lQgb8hD7yRfVI+EYCHwWu14fjDd5HKQ=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "203",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-05-06T12:34:47.388Z",
+      "role": "student",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth_app.user",
+    "pk": 45,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$NvhCYvwnP6HqthQ5e94ryx$0QXSgy6kYbwp4C/4K1ayjPdJivLaUiroSUNhoTNPn4k=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "182",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-07-17T05:16:57.961Z",
+      "role": "student",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]

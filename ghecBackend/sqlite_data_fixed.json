@@ -1,0 +1,4076 @@
+[
+{
+  "model": "sessions.session",
+  "pk": "0hziwj73ob9lvyxx0yn6t3nxhuhjo6el",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCwA6Mu3fcMZBgGqRpISrsy3l2bdKHb_977LxVoXUpYu8xhSuqirDr8bpH4IXUD6U711jS3usxT1Juid9r12JI8r7v7d1Col2_N6BzQQAwexVrgBGwgGhuFTkfnkzdwBrbgXGZ2gHlAjJCTh-zRinp_ANiWN54:1wG9z1:1ZgTzH9fyuSoOcpc44b2q1fUM7Uv_x3sfypfOVAVLtM",
+    "expire_date": "2026-05-08T06:25:47.500Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "2mkz4qgotbbkie4f8bc0zjdywboni8ff",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCGAh1cuvcMZAqDVA0kpV0Z765NutDtf-_9lwi0rSVsnZcwJ3EWIE6_20TxwXUH6U711mRsdV3mSe6KPGiX15b4eTncv4NCvXxrw9oSOLSks4IIPPiMYME6JswQR2KPyqTBIRIaUJk4Wj-yBjWgyeL9Ac47N0c:1wPaYk:N-mMbbPld9sKmXYczW2HLjGTkqjCxRgds5ySNqInF80",
+    "expire_date": "2026-06-03T06:37:38.636Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "46vymx3ejoaqj13lym15wap1uurfsn25",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCQMoBL9z0DGYZBqoYmpV0Z765NutDtf-_9l4i4rTVunZc4ZXERWpx-t4T04LaDfMd2myXNbV2mJHdFHrTLcc78vB7u30HFXr81D85pbwF00KgLGPZFBZ8yOXRoS1KgDAejGYL1Bp0nHs6QjbMFgUi8P8i3N40:1waADm:xKaqSDYqrorMUQWFkSE1dL7DbwhjLKGr2qYaZzlJLhE",
+    "expire_date": "2026-07-02T10:43:42.144Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "9jvyk6bjiz6i2ino0lbtpcx42tswryf8",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCGAh1cuvcMZAqDVA0kpV0Z765NutDtf-_9lwi0rSVsnZcwJ3EWIE6_20TxwXUH6U711mRsdV3mSe6KPGiX15b4eTncv4NCvXxrw9oSOLSks4IIPPiMYME6JswQR2KPyqTBIRIaUJk4Wj-yBjWgyeL9Ac47N0c:1wPaYk:N-mMbbPld9sKmXYczW2HLjGTkqjCxRgds5ySNqInF80",
+    "expire_date": "2026-06-03T06:37:38.861Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "fx14odsz1di89zkdnf12u8ury6bj7hm3",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCQMoBL9z0DGYZBqoYmpV0Z765NutDtf-_9l4i4rTVunZc4ZXERWpx-t4T04LaDfMd2myXNbV2mJHdFHrTLcc78vB7u30HFXr81D85pbwF00KgLGPZFBZ8yOXRoS1KgDAejGYL1Bp0nHs6QjbMFgUi8P8i3N40:1wqqBA:L7BxavwyUEGk6HodRLu8royurMzYwUnE-jjBvZ5owAc",
+    "expire_date": "2026-08-17T10:45:56.300Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "h3dqqlxbss8nu2j6ooapypusnslgbavd",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAUBe_iGlnybijpOYP1N-MAiqUsVcTdIVIKaN_MvE0VWJdW1lmmMrC6KKNOvxsCPWXcAT9gvHdNfVymAfWu6IPO-tZZXtfD_TtoMLdvnaP4UKOwjRKyR5NchUpWwDljLYucXU3EOVJgQUhMAbECp-ozUlbvDwenOZQ:1xDk8M:3QW5MBdaf17JvpOoXM42VkAbuYGs4eWBE09zFRRhV7Q",
+    "expire_date": "2026-10-19T14:57:42.410Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "hwfmdu85nh8kg6u5hxrbnc0bnrc24ldr",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCQMoBL9z0DGYZBqoYmpV0Z765NutDtf-_9l4i4rTVunZc4ZXERWpx-t4T04LaDfMd2myXNbV2mJHdFHrTLcc78vB7u30HFXr81D85pbwF00KgLGPZFBZ8yOXRoS1KgDAejGYL1Bp0nHs6QjbMFgUi8P8i3N40:1x1Ekx:OoD5th1Ji4Pecsel7Yarh8bkNSA2rBfu15wlCMyXDBM",
+    "expire_date": "2026-09-15T03:01:51.516Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "i9rx3lkflpfwadt2ntnd2gh2gtgc97qe",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCGAh1cuvcMZAqDVA0kpV0Z765NutDtf-_9lwi0rSVsnZcwJ3EWIE6_20TxwXUH6U711mRsdV3mSe6KPGiX15b4eTncv4NCvXxrw9oSOLSks4IIPPiMYME6JswQR2KPyqTBIRIaUJk4Wj-yBjWgyeL9Ac47N0c:1wPaYl:nUOXg44uqCHB3o9ozTai8F467NEFQvU0I3FTEL6GVqU",
+    "expire_date": "2026-06-03T06:37:39.025Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "jbkala7qpivr4xdqob56zux4oi5r0z4u",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCGAh1cuvcMZAqDVA0kpV0Z765NutDtf-_9lwi0rSVsnZcwJ3EWIE6_20TxwXUH6U711mRsdV3mSe6KPGiX15b4eTncv4NCvXxrw9oSOLSks4IIPPiMYME6JswQR2KPyqTBIRIaUJk4Wj-yBjWgyeL9Ac47N0c:1wPaYk:N-mMbbPld9sKmXYczW2HLjGTkqjCxRgds5ySNqInF80",
+    "expire_date": "2026-06-03T06:37:38.755Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "rppg717g386lr6n0qsbo2xw3echsrlzh",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCGAh1cuvcMZAqDVA0kpV0Z765NutDtf-_9lwi0rSVsnZcwJ3EWIE6_20TxwXUH6U711mRsdV3mSe6KPGiX15b4eTncv4NCvXxrw9oSOLSks4IIPPiMYME6JswQR2KPyqTBIRIaUJk4Wj-yBjWgyeL9Ac47N0c:1wHfR8:fA0a2kpVfGx3sCCGtbNxfR3BpGQcuJ6odQPZ1Ij-cvg",
+    "expire_date": "2026-05-12T10:13:02.063Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ymoyj6r5h6ovnhvnson7863ywuf5arvy",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyGUlcJ69N5vIAuLUjWQlPZk_Hdp0oPeJvPezFt42tbst5YWP7O4iEGcfrtA8ZnKDvhB5V5lrGVd5iB3RR60yalyel0P9-8gU8t9HeAGaKyJStuoGUEBMiujI4xISNpYQqt66MmcHeI4uABKRwvOBBSfL7TLNjg:1xVomd:GlhyHAnbbQiEi9FOZR5CMk3NmqqWFHO-rYVsjPf2Ufk",
+    "expire_date": "2026-12-08T11:33:59.938Z"
+  }
+},
+{
+  "model": "auth_app.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$1npXsAfVVZz0cQkRAtkh63$7NM8vgdI1CqDP1LgN4cPH8CSC6JxDV+E2LPmsFLXCyE=",
+    "last_login": "2026-11-15T04:58:38.950Z",
+    "is_superuser": true,
+    "username": "vikasjusta",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-04-24T05:21:06.954Z",
+    "role": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth_app.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$62pggLrlFMMfJXMdF81DV0$XvHfRDnyNxkZma/kSAkWeL4+i6ftN4mjUc0Cp1a1E08=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "101",
+    "first_name": "Vikas",
+    "last_name": "Justa",
+    "email": "vikasjusta3@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-04-24T05:52:20Z",
+    "role": "teacher",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth_app.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$DedJ595czq60D7POAaviF9$H5IkCzLgMK8Ak4270lRkUIenM7He8Kt2jWjGWnxo4F4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "82",
+    "first_name": "Vikas",
+    "last_name": "Justa",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-04-24T06:24:31Z",
+    "role": "student",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth_app.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$YmyWuiaEHXixs69pSwC5eu$ajfxGoGgBw6LjwgRS0/hKWc1M9x4+6rDvHDPcZh48rc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "GHEC",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-04-24T06:47:11.611Z",
+    "role": "teacher",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth_app.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$T0x7c7WPLejMd7QOAhX1fy$D5jzndkZRtbCRjuDMojr3oGD40Sj4mSMinVBXnkEWRA=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "73",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-04-28T11:41:50.630Z",
+    "role": "student",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth_app.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$0vR0QHrldbmwtOOfhgHjMP$tMDtvHJyi1M31TqaGkfMW7S9SfCZqoOygm/lAlwemqQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "80",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-04-30T01:48:24.749Z",
+    "role": "student",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth_app.user",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$TaZXU87TtnLLEw3hvdik4f$R0ctuPpzeDnH9ZcLjxpv2+KnEUpzHYkBgTSGg9Pj9hM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "79",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-04-30T01:51:06.248Z",
+    "role": "student",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth_app.user",
+  "pk": 34,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$zWkURCS3nv22NKBWOCRFfX$s6LtBDZ3J/pgxUKuD2bfi7BnkoDSfoJwPlajxrGj1N4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "HOD",
+    "first_name": "HOD",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-02T15:47:27Z",
+    "role": "HOD",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth_app.user",
+  "pk": 36,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$gOaPAvj0TMwEOmIyvlIM9M$Mqpq+OOjzschPezmYlF/FC1YvlyxRj42BjawWRzbI9Q=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "principal",
+    "first_name": "Principal",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-03T04:25:45.071Z",
+    "role": "Principal",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth_app.user",
+  "pk": 42,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$8JXsaHJzCfoMAPGi7viBTG$8e2rkhjqnahtfUEwrib/998cfau7KeQ27m+ZW3H8Ofw=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "30",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-06T11:50:58.449Z",
+    "role": "student",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth_app.user",
+  "pk": 43,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$kLyPIX6LeC2D2yDm6tD2nW$GCeYtloYIpD3lQgb8hD7yRfVI+EYCHwWu14fjDd5HKQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "203",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-06T12:34:47.388Z",
+    "role": "student",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth_app.user",
+  "pk": 45,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$NvhCYvwnP6HqthQ5e94ryx$0QXSgy6kYbwp4C/4K1ayjPdJivLaUiroSUNhoTNPn4k=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "182",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-07-17T05:16:57.961Z",
+    "role": "student",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "students.student",
+  "pk": "182",
+  "fields": {
+    "user": [
+      "182"
+    ],
+    "full_name": "Vikas Justa",
+    "branch": "cse",
+    "semester": 8,
+    "admission_date": null,
+    "parent_name": "Prakash Chand",
+    "parent_phone": "8219858452",
+    "student_phone": "8219858452",
+    "email": "vikasjusta@gmail.com",
+    "gender": "Male",
+    "date_of_birth": "2000-01-01",
+    "address": "shimla",
+    "image": ""
+  }
+},
+{
+  "model": "students.student",
+  "pk": "203",
+  "fields": {
+    "user": [
+      "203"
+    ],
+    "full_name": "Dimple Sharma",
+    "branch": "Civil",
+    "semester": 8,
+    "admission_date": null,
+    "parent_name": "na",
+    "parent_phone": "20",
+    "student_phone": "20",
+    "email": "",
+    "gender": "Male",
+    "date_of_birth": "2000-01-01",
+    "address": "",
+    "image": ""
+  }
+},
+{
+  "model": "students.student",
+  "pk": "30",
+  "fields": {
+    "user": [
+      "30"
+    ],
+    "full_name": "Arji Sharma",
+    "branch": "Civil",
+    "semester": 8,
+    "admission_date": null,
+    "parent_name": "na",
+    "parent_phone": "20",
+    "student_phone": "20",
+    "email": "na@gmail.com",
+    "gender": "Male",
+    "date_of_birth": "2000-01-01",
+    "address": "na",
+    "image": ""
+  }
+},
+{
+  "model": "students.student",
+  "pk": "73",
+  "fields": {
+    "user": [
+      "73"
+    ],
+    "full_name": "Kanika Sharma",
+    "branch": "cse",
+    "semester": 8,
+    "admission_date": null,
+    "parent_name": "na",
+    "parent_phone": "0",
+    "student_phone": "0",
+    "email": "na@gmail.com",
+    "gender": "Other",
+    "date_of_birth": "2000-01-26",
+    "address": "na",
+    "image": ""
+  }
+},
+{
+  "model": "students.student",
+  "pk": "79",
+  "fields": {
+    "user": [
+      "79"
+    ],
+    "full_name": "Himanshu Sandhu",
+    "branch": "cse",
+    "semester": 8,
+    "admission_date": null,
+    "parent_name": "na",
+    "parent_phone": "0",
+    "student_phone": "",
+    "email": "",
+    "gender": "Female",
+    "date_of_birth": "2000-01-01",
+    "address": "",
+    "image": ""
+  }
+},
+{
+  "model": "students.student",
+  "pk": "80",
+  "fields": {
+    "user": [
+      "80"
+    ],
+    "full_name": "Ritika",
+    "branch": "cse",
+    "semester": 8,
+    "admission_date": null,
+    "parent_name": "na",
+    "parent_phone": "9876543210",
+    "student_phone": "",
+    "email": "",
+    "gender": "Female",
+    "date_of_birth": "2000-01-01",
+    "address": "",
+    "image": ""
+  }
+},
+{
+  "model": "students.student",
+  "pk": "82",
+  "fields": {
+    "user": [
+      "82"
+    ],
+    "full_name": "Vikas Justa",
+    "branch": "cse",
+    "semester": 8,
+    "admission_date": null,
+    "parent_name": "Prakash Chand",
+    "parent_phone": "8219858452",
+    "student_phone": "8219858452",
+    "email": "vikasjusta3@gmail.com",
+    "gender": "Male",
+    "date_of_birth": "2000-01-01",
+    "address": "Shimla",
+    "image": "student_images/82_XLBWHHG.jpg"
+  }
+},
+{
+  "model": "students.subject",
+  "pk": 1,
+  "fields": {
+    "sub_name": "IOT",
+    "branch": "cse",
+    "semester": 6
+  }
+},
+{
+  "model": "students.subject",
+  "pk": 2,
+  "fields": {
+    "sub_name": "ACN",
+    "branch": "cse",
+    "semester": 6
+  }
+},
+{
+  "model": "students.profileupdaterequest",
+  "pk": 1,
+  "fields": {
+    "student": "82",
+    "field_name": "email",
+    "old_value": "vikasjusta3@gmail.com",
+    "new_value": "vikasjusta@gmail.com",
+    "status": "approved",
+    "requested_at": "2026-04-24T06:27:52Z",
+    "reviewed_at": null,
+    "reviewed_by": null
+  }
+},
+{
+  "model": "students.profileupdaterequest",
+  "pk": 2,
+  "fields": {
+    "student": "82",
+    "field_name": "parent_phone",
+    "old_value": "8219858452",
+    "new_value": "821985845",
+    "status": "approved",
+    "requested_at": "2026-04-28T10:11:27.272Z",
+    "reviewed_at": null,
+    "reviewed_by": null
+  }
+},
+{
+  "model": "students.profileupdaterequest",
+  "pk": 3,
+  "fields": {
+    "student": "82",
+    "field_name": "branch",
+    "old_value": "cse",
+    "new_value": "Civil",
+    "status": "rejected",
+    "requested_at": "2026-04-28T12:31:49.975Z",
+    "reviewed_at": null,
+    "reviewed_by": null
+  }
+},
+{
+  "model": "students.profileupdaterequest",
+  "pk": 4,
+  "fields": {
+    "student": "82",
+    "field_name": "student_phone",
+    "old_value": "8219858452",
+    "new_value": "123",
+    "status": "rejected",
+    "requested_at": "2026-04-28T12:39:22.112Z",
+    "reviewed_at": null,
+    "reviewed_by": null
+  }
+},
+{
+  "model": "students.profileupdaterequest",
+  "pk": 5,
+  "fields": {
+    "student": "82",
+    "field_name": "address",
+    "old_value": "shimla",
+    "new_value": "Shimla",
+    "status": "approved",
+    "requested_at": "2026-04-30T01:47:28.492Z",
+    "reviewed_at": null,
+    "reviewed_by": null
+  }
+},
+{
+  "model": "students.profileupdaterequest",
+  "pk": 7,
+  "fields": {
+    "student": "80",
+    "field_name": "parent_phone",
+    "old_value": "0",
+    "new_value": "9876543210",
+    "status": "approved",
+    "requested_at": "2026-04-30T01:52:44.892Z",
+    "reviewed_at": null,
+    "reviewed_by": null
+  }
+},
+{
+  "model": "students.profileupdaterequest",
+  "pk": 8,
+  "fields": {
+    "student": "79",
+    "field_name": "full_name",
+    "old_value": "Himanshu Sandhu",
+    "new_value": "Himanshi",
+    "status": "rejected",
+    "requested_at": "2026-04-30T01:53:18.563Z",
+    "reviewed_at": null,
+    "reviewed_by": null
+  }
+},
+{
+  "model": "students.profileupdaterequest",
+  "pk": 9,
+  "fields": {
+    "student": "82",
+    "field_name": "address",
+    "old_value": "Shimla",
+    "new_value": "Shimla",
+    "status": "approved",
+    "requested_at": "2026-05-06T12:14:15.958Z",
+    "reviewed_at": null,
+    "reviewed_by": null
+  }
+},
+{
+  "model": "students.profileupdaterequest",
+  "pk": 10,
+  "fields": {
+    "student": "82",
+    "field_name": "parent_name",
+    "old_value": "Prakash CHand",
+    "new_value": "8219858452",
+    "status": "approved",
+    "requested_at": "2026-05-06T12:16:44.131Z",
+    "reviewed_at": null,
+    "reviewed_by": null
+  }
+},
+{
+  "model": "students.profileupdaterequest",
+  "pk": 11,
+  "fields": {
+    "student": "82",
+    "field_name": "address",
+    "old_value": "Shimla",
+    "new_value": "Shimla/Theog",
+    "status": "approved",
+    "requested_at": "2026-05-06T12:17:13.761Z",
+    "reviewed_at": null,
+    "reviewed_by": null
+  }
+},
+{
+  "model": "students.profileupdaterequest",
+  "pk": 12,
+  "fields": {
+    "student": "82",
+    "field_name": "parent_phone",
+    "old_value": "821985845",
+    "new_value": "821985845",
+    "status": "approved",
+    "requested_at": "2026-05-06T12:18:27.876Z",
+    "reviewed_at": null,
+    "reviewed_by": null
+  }
+},
+{
+  "model": "students.profileupdaterequest",
+  "pk": 13,
+  "fields": {
+    "student": "82",
+    "field_name": "address",
+    "old_value": "Shimla/Theog",
+    "new_value": "Shimla/Theog",
+    "status": "approved",
+    "requested_at": "2026-05-06T12:20:12.914Z",
+    "reviewed_at": null,
+    "reviewed_by": null
+  }
+},
+{
+  "model": "students.profileupdaterequest",
+  "pk": 14,
+  "fields": {
+    "student": "82",
+    "field_name": "address",
+    "old_value": "Shimla/Theog",
+    "new_value": "Shimla",
+    "status": "approved",
+    "requested_at": "2026-05-06T12:21:41.193Z",
+    "reviewed_at": null,
+    "reviewed_by": null
+  }
+},
+{
+  "model": "students.profileupdaterequest",
+  "pk": 15,
+  "fields": {
+    "student": "82",
+    "field_name": "full_name",
+    "old_value": "Vikas Justa",
+    "new_value": "Vikas",
+    "status": "pending",
+    "requested_at": "2026-05-06T12:27:18.552Z",
+    "reviewed_at": null,
+    "reviewed_by": null
+  }
+},
+{
+  "model": "students.profileupdaterequest",
+  "pk": 16,
+  "fields": {
+    "student": "82",
+    "field_name": "branch",
+    "old_value": "cse",
+    "new_value": "civil",
+    "status": "pending",
+    "requested_at": "2026-05-06T12:27:25.711Z",
+    "reviewed_at": null,
+    "reviewed_by": null
+  }
+},
+{
+  "model": "students.profileupdaterequest",
+  "pk": 17,
+  "fields": {
+    "student": "82",
+    "field_name": "student_phone",
+    "old_value": "8219858452",
+    "new_value": "821985845",
+    "status": "rejected",
+    "requested_at": "2026-05-06T12:27:34.545Z",
+    "reviewed_at": null,
+    "reviewed_by": null
+  }
+},
+{
+  "model": "students.profileupdaterequest",
+  "pk": 18,
+  "fields": {
+    "student": "82",
+    "field_name": "student_phone",
+    "old_value": "8219858452",
+    "new_value": "821985845",
+    "status": "rejected",
+    "requested_at": "2026-05-06T12:27:46.314Z",
+    "reviewed_at": null,
+    "reviewed_by": null
+  }
+},
+{
+  "model": "students.lastupdatedsem",
+  "pk": 1,
+  "fields": {
+    "lastUpdated": "2026-11-17T06:39:20Z"
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 1,
+  "fields": {
+    "student": "82",
+    "subject": 1,
+    "date": "2026-04-24",
+    "status": "A",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 2,
+  "fields": {
+    "student": "82",
+    "subject": 1,
+    "date": "2026-04-28",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 3,
+  "fields": {
+    "student": "82",
+    "subject": 1,
+    "date": "2026-04-28",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 4,
+  "fields": {
+    "student": "82",
+    "subject": 1,
+    "date": "2026-04-28",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 5,
+  "fields": {
+    "student": "82",
+    "subject": 1,
+    "date": "2026-04-28",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 6,
+  "fields": {
+    "student": "82",
+    "subject": 2,
+    "date": "2026-04-28",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 7,
+  "fields": {
+    "student": "82",
+    "subject": 2,
+    "date": "2026-04-29",
+    "status": "A",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 8,
+  "fields": {
+    "student": "82",
+    "subject": 2,
+    "date": "2026-04-29",
+    "status": "A",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 9,
+  "fields": {
+    "student": "82",
+    "subject": 1,
+    "date": "2026-04-30",
+    "status": "A",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 10,
+  "fields": {
+    "student": "80",
+    "subject": 1,
+    "date": "2026-04-30",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 12,
+  "fields": {
+    "student": "79",
+    "subject": 1,
+    "date": "2026-04-30",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 13,
+  "fields": {
+    "student": "82",
+    "subject": 1,
+    "date": "2026-04-30",
+    "status": "A",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 14,
+  "fields": {
+    "student": "80",
+    "subject": 1,
+    "date": "2026-04-30",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 16,
+  "fields": {
+    "student": "79",
+    "subject": 1,
+    "date": "2026-04-30",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 17,
+  "fields": {
+    "student": "82",
+    "subject": 1,
+    "date": "2026-05-03",
+    "status": "A",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 18,
+  "fields": {
+    "student": "80",
+    "subject": 1,
+    "date": "2026-05-03",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 20,
+  "fields": {
+    "student": "79",
+    "subject": 1,
+    "date": "2026-05-03",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 21,
+  "fields": {
+    "student": "82",
+    "subject": 2,
+    "date": "2026-05-06",
+    "status": "A",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 22,
+  "fields": {
+    "student": "73",
+    "subject": 2,
+    "date": "2026-05-06",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 23,
+  "fields": {
+    "student": "80",
+    "subject": 2,
+    "date": "2026-05-06",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 24,
+  "fields": {
+    "student": "79",
+    "subject": 2,
+    "date": "2026-05-06",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 25,
+  "fields": {
+    "student": "82",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "A",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 26,
+  "fields": {
+    "student": "73",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 27,
+  "fields": {
+    "student": "80",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 28,
+  "fields": {
+    "student": "79",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 29,
+  "fields": {
+    "student": "82",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "A",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 30,
+  "fields": {
+    "student": "73",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 31,
+  "fields": {
+    "student": "80",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 32,
+  "fields": {
+    "student": "79",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 33,
+  "fields": {
+    "student": "82",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "A",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 34,
+  "fields": {
+    "student": "73",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "A",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 35,
+  "fields": {
+    "student": "80",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "A",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 36,
+  "fields": {
+    "student": "79",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "A",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 37,
+  "fields": {
+    "student": "82",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "A",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 38,
+  "fields": {
+    "student": "73",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "A",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 39,
+  "fields": {
+    "student": "80",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "A",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 40,
+  "fields": {
+    "student": "79",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "A",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 41,
+  "fields": {
+    "student": "82",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 42,
+  "fields": {
+    "student": "73",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 43,
+  "fields": {
+    "student": "80",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 44,
+  "fields": {
+    "student": "79",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 45,
+  "fields": {
+    "student": "82",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 46,
+  "fields": {
+    "student": "73",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 47,
+  "fields": {
+    "student": "80",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 48,
+  "fields": {
+    "student": "79",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 49,
+  "fields": {
+    "student": "82",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "A",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 50,
+  "fields": {
+    "student": "73",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 51,
+  "fields": {
+    "student": "80",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 52,
+  "fields": {
+    "student": "79",
+    "subject": 2,
+    "date": "2026-05-20",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 53,
+  "fields": {
+    "student": "82",
+    "subject": 2,
+    "date": "2026-06-17",
+    "status": "A",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 54,
+  "fields": {
+    "student": "73",
+    "subject": 2,
+    "date": "2026-06-17",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 55,
+  "fields": {
+    "student": "80",
+    "subject": 2,
+    "date": "2026-06-17",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 56,
+  "fields": {
+    "student": "79",
+    "subject": 2,
+    "date": "2026-06-17",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 57,
+  "fields": {
+    "student": "82",
+    "subject": 2,
+    "date": "2026-06-17",
+    "status": "A",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 58,
+  "fields": {
+    "student": "73",
+    "subject": 2,
+    "date": "2026-06-17",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 59,
+  "fields": {
+    "student": "80",
+    "subject": 2,
+    "date": "2026-06-17",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 60,
+  "fields": {
+    "student": "79",
+    "subject": 2,
+    "date": "2026-06-17",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 61,
+  "fields": {
+    "student": "82",
+    "subject": 2,
+    "date": "2026-06-18",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 62,
+  "fields": {
+    "student": "73",
+    "subject": 2,
+    "date": "2026-06-18",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 63,
+  "fields": {
+    "student": "80",
+    "subject": 2,
+    "date": "2026-06-18",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 64,
+  "fields": {
+    "student": "79",
+    "subject": 2,
+    "date": "2026-06-18",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 65,
+  "fields": {
+    "student": "82",
+    "subject": 2,
+    "date": "2026-06-18",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 66,
+  "fields": {
+    "student": "73",
+    "subject": 2,
+    "date": "2026-06-18",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 67,
+  "fields": {
+    "student": "80",
+    "subject": 2,
+    "date": "2026-06-18",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 68,
+  "fields": {
+    "student": "79",
+    "subject": 2,
+    "date": "2026-06-18",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 69,
+  "fields": {
+    "student": "82",
+    "subject": 2,
+    "date": "2026-06-18",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 70,
+  "fields": {
+    "student": "73",
+    "subject": 2,
+    "date": "2026-06-18",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 71,
+  "fields": {
+    "student": "80",
+    "subject": 2,
+    "date": "2026-06-18",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 72,
+  "fields": {
+    "student": "79",
+    "subject": 2,
+    "date": "2026-06-18",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 73,
+  "fields": {
+    "student": "82",
+    "subject": 2,
+    "date": "2026-06-18",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 74,
+  "fields": {
+    "student": "73",
+    "subject": 2,
+    "date": "2026-06-18",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 75,
+  "fields": {
+    "student": "80",
+    "subject": 2,
+    "date": "2026-06-18",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 76,
+  "fields": {
+    "student": "79",
+    "subject": 2,
+    "date": "2026-06-18",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 77,
+  "fields": {
+    "student": "82",
+    "subject": 2,
+    "date": "2026-07-17",
+    "status": "A",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 78,
+  "fields": {
+    "student": "73",
+    "subject": 2,
+    "date": "2026-07-17",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 79,
+  "fields": {
+    "student": "80",
+    "subject": 2,
+    "date": "2026-07-17",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 80,
+  "fields": {
+    "student": "79",
+    "subject": 2,
+    "date": "2026-07-17",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 81,
+  "fields": {
+    "student": "82",
+    "subject": 2,
+    "date": "2026-07-17",
+    "status": "A",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 82,
+  "fields": {
+    "student": "73",
+    "subject": 2,
+    "date": "2026-07-17",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 83,
+  "fields": {
+    "student": "80",
+    "subject": 2,
+    "date": "2026-07-17",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 84,
+  "fields": {
+    "student": "79",
+    "subject": 2,
+    "date": "2026-07-17",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 85,
+  "fields": {
+    "student": "82",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 86,
+  "fields": {
+    "student": "73",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 87,
+  "fields": {
+    "student": "80",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 88,
+  "fields": {
+    "student": "79",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 89,
+  "fields": {
+    "student": "82",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 90,
+  "fields": {
+    "student": "73",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 91,
+  "fields": {
+    "student": "80",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 92,
+  "fields": {
+    "student": "79",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 93,
+  "fields": {
+    "student": "82",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 94,
+  "fields": {
+    "student": "73",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 95,
+  "fields": {
+    "student": "80",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 96,
+  "fields": {
+    "student": "79",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 97,
+  "fields": {
+    "student": "82",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 98,
+  "fields": {
+    "student": "73",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 99,
+  "fields": {
+    "student": "80",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 100,
+  "fields": {
+    "student": "79",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 101,
+  "fields": {
+    "student": "82",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 102,
+  "fields": {
+    "student": "73",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 103,
+  "fields": {
+    "student": "80",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 104,
+  "fields": {
+    "student": "79",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 105,
+  "fields": {
+    "student": "82",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 106,
+  "fields": {
+    "student": "73",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 107,
+  "fields": {
+    "student": "80",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 108,
+  "fields": {
+    "student": "79",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 109,
+  "fields": {
+    "student": "82",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 110,
+  "fields": {
+    "student": "73",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "A",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 111,
+  "fields": {
+    "student": "80",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 112,
+  "fields": {
+    "student": "79",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 113,
+  "fields": {
+    "student": "82",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 114,
+  "fields": {
+    "student": "73",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 115,
+  "fields": {
+    "student": "80",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 116,
+  "fields": {
+    "student": "79",
+    "subject": 1,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 117,
+  "fields": {
+    "student": "82",
+    "subject": 2,
+    "date": "2026-09-01",
+    "status": "A",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 118,
+  "fields": {
+    "student": "73",
+    "subject": 2,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 119,
+  "fields": {
+    "student": "80",
+    "subject": 2,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 120,
+  "fields": {
+    "student": "79",
+    "subject": 2,
+    "date": "2026-09-01",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 121,
+  "fields": {
+    "student": "82",
+    "subject": 1,
+    "date": "2026-09-10",
+    "status": "A",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 122,
+  "fields": {
+    "student": "73",
+    "subject": 1,
+    "date": "2026-09-10",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 123,
+  "fields": {
+    "student": "80",
+    "subject": 1,
+    "date": "2026-09-10",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 124,
+  "fields": {
+    "student": "79",
+    "subject": 1,
+    "date": "2026-09-10",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 125,
+  "fields": {
+    "student": "82",
+    "subject": 2,
+    "date": "2026-09-21",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 126,
+  "fields": {
+    "student": "73",
+    "subject": 2,
+    "date": "2026-09-21",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 127,
+  "fields": {
+    "student": "80",
+    "subject": 2,
+    "date": "2026-09-21",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 128,
+  "fields": {
+    "student": "79",
+    "subject": 2,
+    "date": "2026-09-21",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 129,
+  "fields": {
+    "student": "82",
+    "subject": 2,
+    "date": "2026-09-21",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 130,
+  "fields": {
+    "student": "73",
+    "subject": 2,
+    "date": "2026-09-21",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 131,
+  "fields": {
+    "student": "80",
+    "subject": 2,
+    "date": "2026-09-21",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 132,
+  "fields": {
+    "student": "79",
+    "subject": 2,
+    "date": "2026-09-21",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 133,
+  "fields": {
+    "student": "82",
+    "subject": 2,
+    "date": "2026-09-21",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 134,
+  "fields": {
+    "student": "73",
+    "subject": 2,
+    "date": "2026-09-21",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 135,
+  "fields": {
+    "student": "80",
+    "subject": 2,
+    "date": "2026-09-21",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 136,
+  "fields": {
+    "student": "79",
+    "subject": 2,
+    "date": "2026-09-21",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 137,
+  "fields": {
+    "student": "82",
+    "subject": 2,
+    "date": "2026-09-21",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 138,
+  "fields": {
+    "student": "73",
+    "subject": 2,
+    "date": "2026-09-21",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 139,
+  "fields": {
+    "student": "80",
+    "subject": 2,
+    "date": "2026-09-21",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 140,
+  "fields": {
+    "student": "79",
+    "subject": 2,
+    "date": "2026-09-21",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 141,
+  "fields": {
+    "student": "82",
+    "subject": 2,
+    "date": "2026-09-21",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 142,
+  "fields": {
+    "student": "73",
+    "subject": 2,
+    "date": "2026-09-21",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 143,
+  "fields": {
+    "student": "80",
+    "subject": 2,
+    "date": "2026-09-21",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 144,
+  "fields": {
+    "student": "79",
+    "subject": 2,
+    "date": "2026-09-21",
+    "status": "P",
+    "lecture_no": 1
+  }
+},
+{
+  "model": "teachers.teacher",
+  "pk": "101",
+  "fields": {
+    "user": [
+      "101"
+    ],
+    "full_name": "Vikas Justa",
+    "t_phone": "8219858452",
+    "address": "Po parala",
+    "image": "teacher_images/vikasImg.jpeg",
+    "dept": "Admin",
+    "joining_date": "2026-04-24"
+  }
+},
+{
+  "model": "teachers.teacher",
+  "pk": "102",
+  "fields": {
+    "user": [
+      "GHEC"
+    ],
+    "full_name": "GHEC",
+    "t_phone": "0",
+    "address": "Solan",
+    "image": "teacher_images/logo.jpg",
+    "dept": null,
+    "joining_date": null
+  }
+},
+{
+  "model": "teachers.teacher",
+  "pk": "HOD",
+  "fields": {
+    "user": [
+      "HOD"
+    ],
+    "full_name": "HOD",
+    "t_phone": "na",
+    "address": "na",
+    "image": "teacher_images/AddStudents.jpeg",
+    "dept": "CSE",
+    "joining_date": "2026-05-02"
+  }
+},
+{
+  "model": "teachers.teacher",
+  "pk": "principal",
+  "fields": {
+    "user": [
+      "principal"
+    ],
+    "full_name": "Principal",
+    "t_phone": "na",
+    "address": "na",
+    "image": "teacher_images/Screenshot_2026-08-21_180210.png",
+    "dept": "na",
+    "joining_date": "2026-05-03"
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 6,
+  "fields": {
+    "username": "102",
+    "description": "Campus Of Green Hills",
+    "created_at": "2026-04-29T16:29:24.723Z",
+    "updated_at": "2026-04-29T16:29:24.723Z",
+    "user_id": null,
+    "is_active": true
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 7,
+  "fields": {
+    "username": "102",
+    "description": "Practicals and Sports activities",
+    "created_at": "2026-04-29T16:30:03.778Z",
+    "updated_at": "2026-04-29T16:30:03.778Z",
+    "user_id": null,
+    "is_active": true
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 8,
+  "fields": {
+    "username": "101",
+    "description": "Admin Block",
+    "created_at": "2026-04-29T16:30:57.971Z",
+    "updated_at": "2026-04-29T16:30:57.971Z",
+    "user_id": null,
+    "is_active": true
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 9,
+  "fields": {
+    "username": "101",
+    "description": "View",
+    "created_at": "2026-04-29T16:31:21.337Z",
+    "updated_at": "2026-04-29T16:31:21.337Z",
+    "user_id": null,
+    "is_active": true
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 11,
+  "fields": {
+    "username": "principal",
+    "description": "Testing Post By Principal",
+    "created_at": "2026-05-06T11:42:20.450Z",
+    "updated_at": "2026-05-06T11:42:20.450Z",
+    "user_id": null,
+    "is_active": true
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 12,
+  "fields": {
+    "username": "102",
+    "description": "Tech fest 2k26",
+    "created_at": "2026-05-20T06:39:28.332Z",
+    "updated_at": "2026-05-20T06:39:28.332Z",
+    "user_id": null,
+    "is_active": true
+  }
+},
+{
+  "model": "posts.postimage",
+  "pk": 9,
+  "fields": {
+    "post": 6,
+    "image": "posts/IMG-20260429-WA0011.jpg",
+    "created_at": "2026-04-29T16:29:24.746Z"
+  }
+},
+{
+  "model": "posts.postimage",
+  "pk": 10,
+  "fields": {
+    "post": 7,
+    "image": "posts/IMG-20260429-WA0014.jpg",
+    "created_at": "2026-04-29T16:30:03.788Z"
+  }
+},
+{
+  "model": "posts.postimage",
+  "pk": 11,
+  "fields": {
+    "post": 7,
+    "image": "posts/IMG-20260429-WA0017.jpg",
+    "created_at": "2026-04-29T16:30:03.802Z"
+  }
+},
+{
+  "model": "posts.postimage",
+  "pk": 12,
+  "fields": {
+    "post": 7,
+    "image": "posts/IMG-20260429-WA0015.jpg",
+    "created_at": "2026-04-29T16:30:03.814Z"
+  }
+},
+{
+  "model": "posts.postimage",
+  "pk": 13,
+  "fields": {
+    "post": 8,
+    "image": "posts/IMG-20260429-WA0012.jpg",
+    "created_at": "2026-04-29T16:30:57.997Z"
+  }
+},
+{
+  "model": "posts.postimage",
+  "pk": 14,
+  "fields": {
+    "post": 9,
+    "image": "posts/IMG-20260429-WA0013.jpg",
+    "created_at": "2026-04-29T16:31:21.362Z"
+  }
+},
+{
+  "model": "posts.postimage",
+  "pk": 15,
+  "fields": {
+    "post": 9,
+    "image": "posts/IMG-20260429-WA0016.jpg",
+    "created_at": "2026-04-29T16:31:21.385Z"
+  }
+},
+{
+  "model": "posts.postimage",
+  "pk": 16,
+  "fields": {
+    "post": 12,
+    "image": "posts/IMG_20260516_143633.jpg",
+    "created_at": "2026-05-20T06:39:28.348Z"
+  }
+},
+{
+  "model": "posts.postimage",
+  "pk": 17,
+  "fields": {
+    "post": 12,
+    "image": "posts/IMG_20260516_143618.jpg",
+    "created_at": "2026-05-20T06:39:28.375Z"
+  }
+},
+{
+  "model": "posts.postimage",
+  "pk": 18,
+  "fields": {
+    "post": 12,
+    "image": "posts/IMG_20260516_111436.jpg",
+    "created_at": "2026-05-20T06:39:28.405Z"
+  }
+},
+{
+  "model": "posts.postimage",
+  "pk": 19,
+  "fields": {
+    "post": 12,
+    "image": "posts/IMG-20260517-WA0007.jpg",
+    "created_at": "2026-05-20T06:39:28.423Z"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-04-24T05:52:45.824Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "2",
+    "object_repr": "101 (teacher)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-04-24T05:53:45.442Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "teachers",
+      "teacher"
+    ],
+    "object_id": "101",
+    "object_repr": "101 - Vikas Justa",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Full name\", \"T phone\", \"Address\", \"Image\", \"Dept\", \"Joining date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-04-24T05:54:32.530Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "teachers",
+      "teacher"
+    ],
+    "object_id": "101",
+    "object_repr": "101 - Vikas Justa",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-04-24T05:54:45.342Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "teachers",
+      "teacher"
+    ],
+    "object_id": "101",
+    "object_repr": "101 - Vikas Justa",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-04-24T06:13:35.292Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "2",
+    "object_repr": "101 (teacher)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-04-24T06:25:47.456Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "2",
+    "object_repr": "101 (teacher)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-04-24T06:26:27.835Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "students",
+      "subject"
+    ],
+    "object_id": "1",
+    "object_repr": "IOT",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-04-24T06:30:27.788Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "posts",
+      "post"
+    ],
+    "object_id": "1",
+    "object_repr": "101 - Vikas Justa - 2026-04-24 06:30:27.785324+00:00",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-04-24T06:36:52.115Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "4",
+    "object_repr": "ghec ()",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-04-24T06:40:03.470Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "4",
+    "object_repr": "ghec ()",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2026-04-24T06:40:36.596Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "5",
+    "object_repr": "GHEC ()",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2026-04-24T06:43:58.959Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "teachers",
+      "teacher"
+    ],
+    "object_id": "102",
+    "object_repr": "102 - GHEC",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2026-04-24T06:45:31.671Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "5",
+    "object_repr": "GHEC ()",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2026-04-24T06:47:13.024Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "6",
+    "object_repr": "GHEC (teacher)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-04-24T06:48:01.613Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "teachers",
+      "teacher"
+    ],
+    "object_id": "102",
+    "object_repr": "102 - GHEC",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2026-04-24T06:49:05.992Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "teachers",
+      "teacher"
+    ],
+    "object_id": "102",
+    "object_repr": "102 - GHEC",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2026-04-28T10:13:02.020Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "6",
+    "object_repr": "GHEC (teacher)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2026-04-28T10:24:47.739Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "students",
+      "profileupdaterequest"
+    ],
+    "object_id": "1",
+    "object_repr": "82 - Vikas Justa - email (approved)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2026-04-28T12:18:17.171Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "attendance",
+      "attendance"
+    ],
+    "object_id": "3",
+    "object_repr": "82 - Vikas Justa - IOT - 2026-04-28",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2026-04-28T12:18:31.680Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "attendance",
+      "attendance"
+    ],
+    "object_id": "2",
+    "object_repr": "82 - Vikas Justa - IOT - 2026-04-28",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2026-04-28T12:18:43.087Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "attendance",
+      "attendance"
+    ],
+    "object_id": "1",
+    "object_repr": "82 - Vikas Justa - IOT - 2026-04-24",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2026-04-28T12:18:57.294Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "attendance",
+      "attendance"
+    ],
+    "object_id": "1",
+    "object_repr": "82 - Vikas Justa - IOT - 2026-04-24",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2026-04-28T12:38:10.360Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "students",
+      "subject"
+    ],
+    "object_id": "2",
+    "object_repr": "ACN",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2026-04-29T07:33:39.592Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "posts",
+      "post"
+    ],
+    "object_id": "2",
+    "object_repr": "101 - Vikas Justa - 2026-04-29 07:33:39.587492+00:00",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2026-04-29T15:48:30.283Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "posts",
+      "postimage"
+    ],
+    "object_id": "1",
+    "object_repr": "Image for Post 1",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2026-04-29T15:48:50.953Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "posts",
+      "postimage"
+    ],
+    "object_id": "1",
+    "object_repr": "Image for Post 1",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2026-04-29T16:27:10.842Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "posts",
+      "post"
+    ],
+    "object_id": "5",
+    "object_repr": "101 - Vikas Justa - 2026-04-29 16:07:02.369837+00:00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2026-04-29T16:27:10.842Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "posts",
+      "post"
+    ],
+    "object_id": "4",
+    "object_repr": "102 - GHEC - 2026-04-29 16:05:29.094106+00:00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2026-04-29T16:27:10.842Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "posts",
+      "post"
+    ],
+    "object_id": "3",
+    "object_repr": "101 - Vikas Justa - 2026-04-29 15:59:40.519393+00:00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2026-04-29T16:27:10.842Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "posts",
+      "post"
+    ],
+    "object_id": "2",
+    "object_repr": "101 - Vikas Justa - 2026-04-29 07:33:39.587492+00:00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2026-04-29T16:27:10.842Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "posts",
+      "post"
+    ],
+    "object_id": "1",
+    "object_repr": "101 - Vikas Justa - 2026-04-24 06:30:27.785324+00:00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2026-05-01T04:43:52.262Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "11",
+    "object_repr": "Testing Teacher (lec)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2026-05-01T15:15:59.580Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "18",
+    "object_repr": "300 (Management)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2026-05-01T15:15:59.580Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "12",
+    "object_repr": "500 (lec)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2026-05-01T15:15:59.580Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "13",
+    "object_repr": "501 (lec)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2026-05-01T15:15:59.580Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "14",
+    "object_repr": "502 (HOD)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2026-05-01T15:15:59.580Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "15",
+    "object_repr": "503 (HOD)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2026-05-01T15:15:59.580Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "16",
+    "object_repr": "504 (HOD)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2026-05-01T15:15:59.580Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "17",
+    "object_repr": "509 (HOD)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2026-05-01T15:27:43.209Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "19",
+    "object_repr": "102 (hod)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Role\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2026-05-01T15:27:51.930Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "19",
+    "object_repr": "102 (hod)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2026-05-01T15:41:20.297Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "21",
+    "object_repr": "102 (HOD)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2026-05-01T15:41:20.297Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "20",
+    "object_repr": "103 (Management)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2026-05-01T15:41:20.297Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "23",
+    "object_repr": "106 (Management)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2026-05-01T15:41:20.297Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "22",
+    "object_repr": "15 (HOD)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2026-05-01T15:57:01.843Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "24",
+    "object_repr": "10 (HOD)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2026-05-01T15:57:01.843Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "25",
+    "object_repr": "100 (HOD)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2026-05-01T15:57:01.843Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "26",
+    "object_repr": "10o (HOD)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2026-05-01T15:57:01.843Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "28",
+    "object_repr": "10ok (HOD)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2026-05-01T15:57:01.843Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "27",
+    "object_repr": "10ol (HOD)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2026-05-01T15:57:01.843Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "29",
+    "object_repr": "10p (HOD)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2026-05-01T16:01:58.872Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "30",
+    "object_repr": "012 (Management)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2026-05-01T16:01:58.872Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "33",
+    "object_repr": "109 (Lect)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2026-05-01T16:01:58.872Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "31",
+    "object_repr": "58 (Lect)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2026-05-01T16:01:58.872Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "32",
+    "object_repr": "na (Management)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2026-05-02T15:49:56.600Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "34",
+    "object_repr": "HOD (teacher)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Role\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2026-05-02T15:50:15.920Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "34",
+    "object_repr": "HOD (HOD)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Role\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 58,
+  "fields": {
+    "action_time": "2026-05-03T04:21:05.349Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "teachers",
+      "teacher"
+    ],
+    "object_id": "HOD",
+    "object_repr": "HOD - HOD",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 59,
+  "fields": {
+    "action_time": "2026-05-03T04:22:41.709Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "teachers",
+      "teacher"
+    ],
+    "object_id": "principal",
+    "object_repr": "principal - principal",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 60,
+  "fields": {
+    "action_time": "2026-05-03T04:23:02.445Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "35",
+    "object_repr": "principal (Principal)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 61,
+  "fields": {
+    "action_time": "2026-05-03T04:55:34.213Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "37",
+    "object_repr": "lect (Lect)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Username\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 62,
+  "fields": {
+    "action_time": "2026-05-06T08:15:13.090Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "39",
+    "object_repr": "30 (student)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 63,
+  "fields": {
+    "action_time": "2026-05-06T08:16:35.396Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "students",
+      "student"
+    ],
+    "object_id": "30",
+    "object_repr": "30 - Arjit Sharma",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 64,
+  "fields": {
+    "action_time": "2026-05-06T09:03:15.590Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "40",
+    "object_repr": "30 (student)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 65,
+  "fields": {
+    "action_time": "2026-05-06T09:03:57.645Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "students",
+      "student"
+    ],
+    "object_id": "30",
+    "object_repr": "30 - Arjit Sharma",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 66,
+  "fields": {
+    "action_time": "2026-05-06T09:04:08.684Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "students",
+      "student"
+    ],
+    "object_id": "30",
+    "object_repr": "30 - Arjit Sharma",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Semester\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 67,
+  "fields": {
+    "action_time": "2026-05-06T09:36:54.728Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "students",
+      "student"
+    ],
+    "object_id": "73",
+    "object_repr": "73 - Kanika Sharma",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Semester\", \"Email\", \"Address\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 68,
+  "fields": {
+    "action_time": "2026-05-06T11:10:39.869Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "41",
+    "object_repr": "hod1 (HOD)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 69,
+  "fields": {
+    "action_time": "2026-05-06T11:11:04.999Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "teachers",
+      "teacher"
+    ],
+    "object_id": "hod123",
+    "object_repr": "hod123 - na",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 70,
+  "fields": {
+    "action_time": "2026-05-06T12:19:20.523Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "students",
+      "student"
+    ],
+    "object_id": "82",
+    "object_repr": "82 - Vikas Justa",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Parent name\", \"Parent phone\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 71,
+  "fields": {
+    "action_time": "2026-05-06T12:37:05.066Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "teachers",
+      "teacher"
+    ],
+    "object_id": "HOD",
+    "object_repr": "HOD - HOD",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Dept\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 72,
+  "fields": {
+    "action_time": "2026-05-20T06:31:27.405Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "34",
+    "object_repr": "HOD (HOD)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 73,
+  "fields": {
+    "action_time": "2026-05-20T06:32:47.338Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "36",
+    "object_repr": "principal (Principal)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 74,
+  "fields": {
+    "action_time": "2026-05-20T06:34:32.256Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "37",
+    "object_repr": "lect (Lect)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 75,
+  "fields": {
+    "action_time": "2026-05-20T06:35:42.988Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "38",
+    "object_repr": "management (Management)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 76,
+  "fields": {
+    "action_time": "2026-05-20T06:37:38.601Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "6",
+    "object_repr": "GHEC (teacher)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 77,
+  "fields": {
+    "action_time": "2026-05-20T06:37:38.733Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "6",
+    "object_repr": "GHEC (teacher)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 78,
+  "fields": {
+    "action_time": "2026-05-20T06:37:38.840Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "6",
+    "object_repr": "GHEC (teacher)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 79,
+  "fields": {
+    "action_time": "2026-05-20T06:37:39.002Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "6",
+    "object_repr": "GHEC (teacher)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 80,
+  "fields": {
+    "action_time": "2026-06-18T10:44:14.720Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "posts",
+      "post"
+    ],
+    "object_id": "15",
+    "object_repr": "principal - Principal - 2026-06-17 09:12:22.292171+00:00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 81,
+  "fields": {
+    "action_time": "2026-06-18T10:44:14.721Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "posts",
+      "post"
+    ],
+    "object_id": "14",
+    "object_repr": "LECT - Lect - 2026-05-20 10:14:58.186838+00:00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 82,
+  "fields": {
+    "action_time": "2026-06-18T10:44:14.724Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "posts",
+      "post"
+    ],
+    "object_id": "13",
+    "object_repr": "LECT - Lect - 2026-05-20 10:14:21.207206+00:00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 83,
+  "fields": {
+    "action_time": "2026-09-03T04:28:48.049Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "teachers",
+      "teacher"
+    ],
+    "object_id": "principal",
+    "object_repr": "principal - Principal",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 84,
+  "fields": {
+    "action_time": "2026-11-17T06:39:22.272Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "students",
+      "lastupdatedsem"
+    ],
+    "object_id": "1",
+    "object_repr": "lastUpdatedSem object (1)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 85,
+  "fields": {
+    "action_time": "2026-11-17T11:13:42.907Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "3",
+    "object_repr": "82 (student)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 86,
+  "fields": {
+    "action_time": "2026-11-24T11:33:13.608Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "3",
+    "object_repr": "82 (student)",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 87,
+  "fields": {
+    "action_time": "2026-11-24T11:33:59.903Z",
+    "user": [
+      "vikasjusta"
+    ],
+    "content_type": [
+      "auth_app",
+      "user"
+    ],
+    "object_id": "3",
+    "object_repr": "82 (student)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+  }
+}
+]
